@@ -13,16 +13,27 @@
 \maketitle
 
 \section{Fusion power}
-The fusion power per unit volume is: 
+The fusion power per unit volume produced by the fusion of the nuclei of Deuterium and Tritium is: 
 
 \begin{equation}
     p_{DT} = n_D n_T \left< \sigma v \right> E_{DT}
 \end{equation}
-with $n_D$ and $n_T$ the 
 
+with $n_D$ and $n_T$ the deuterium and tritium density ($[\mathrm{m}^{-3}]$), $\left< \sigma v \right>$ the rate of XX and $E_{DT}$ the energy released per reaction ($[\mathrm{eV}]$). If one assumes in particular an equal deuterium and tritium densities:
+
+\begin{equation}
+    n_D = n_T = \frac{n}{2}
+\end{equation}
+
+then the thermonuclear power density is:
+
+\begin{equation}
+        p_{DT} = \frac{1}{4} n^2 \left< \sigma v \right> E_{DT}
+\end{equation}
  
 
 
 \bibliographystyle{plain}
-\bibliography{references}
+%\bibliography{references}
+\bibliography{references_mendeley}
 \end{document}
