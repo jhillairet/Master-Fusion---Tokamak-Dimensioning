@@ -87,16 +87,16 @@ Several modes (such as e.g. kink, tearing or ballooning modes) become MHD unstab
 
 It turns out that the $\beta$ limit, i.e. the maximum stable $\beta$, scales approximately like $\varepsilon/q_a$, which can be recast as $(\mu_0/2\pi)\; I_p/aB$ from the above relations. We shall define $\beta_m$ as follows:
 \begin{equation}
-  \beta_m \doteq g\; \frac{\hat I_p}{a B}
+  \beta \leqslant \beta_m \doteq g\; \frac{\hat I_p}{a B}
 \end{equation}
 The coefficient of proportionality $g$ depends on the considered instabilities. The so-called "Troyon limit" \cite{Troyon1984} puts this coefficient to $2.8\, 10^{-2}$ (or 2.8 if $\beta$ is expressed in $\%$).
-It is usual to introduce the normalised $\beta$, called $\beta_N$, defined by:
+It is usual to introduce the normalised $\beta$, called $\beta_N$, defined by \cite[eq.(13.146)]{Freidberg2007}:
 \begin{equation}
-\beta_N \doteq \frac{\beta_\%}{\hat I_p/aB}
+    \beta \doteq \beta_N \frac{\hat I_p}{a B}
 \end{equation}
 Then, the stability limit simply reads $\beta_N <g$.
 
-Interestingly, using the above expression and that of the plasma current, the plasma pressure can be expressed as a function of $\beta_N$ and $B$:
+Interestingly, using the above expression and that of the plasma current (\ref{eqn:plasma_current}), the plasma pressure can be expressed as a function of $\beta_N$ and $B$:
 \begin{eqnarray}
   \hat n\hat T &=& C_\beta^{-1} \beta_N \frac{\hat I_p B}{\varepsilon R} \nonumber \\
     &=& \frac{C_I}{C_\beta}\; \frac{\varepsilon}{q_a} \;  \beta_N B^2
