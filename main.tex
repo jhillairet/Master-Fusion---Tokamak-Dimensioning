@@ -1,39 +1,87 @@
-\documentclass{article}
+\documentclass[11pt,a4paper,titlepage]{article}
+\usepackage[a4paper]{geometry}
 \usepackage[utf8]{inputenc}
-
-\title{Tokamak Dimensioning}
-\author{Master Fusion}
-\date{2019}
-
+\usepackage[english]{babel}
+\usepackage{microtype} %improves the spacing between words and letters
 \usepackage{natbib}
 \usepackage{graphicx}
+
+%%%%%% Math packages
+\usepackage{amsmath, amssymb, amsfonts, amsthm, fouriernc, siunitx}
+
+%%%%%% color definitions
+\usepackage[svgnames]{xcolor} % Enabling mixing colors and color's call by 'svgnames'
+\definecolor{MyColor1}{rgb}{0.2,0.4,0.6} %mix personal color
+\newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blue}{\color{MyColor1} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blueb}{\color{MyColor1} \usefont{OT1}{lmss}{b}{n}}
+\newcommand{\red}{\color{LightCoral} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\green}{\color{Turquoise} \usefont{OT1}{lmss}{m}{n}}
+
+%%%%%% definitions of mathematical variables
+\newcommand{\bbf}{{\mathbf b}}
+\newcommand{\ebf}{{\mathbf e}}
+\newcommand{\jbf}{{\mathbf j}}
+\newcommand{\kbf}{{\mathbf k}}
+\newcommand{\ubf}{{\mathbf u}}
+\newcommand{\vbf}{{\mathbf v}}
+\newcommand{\xbf}{{\mathbf x}}
+\newcommand{\Bbf}{{\mathbf B}}
+\newcommand{\Ebf}{{\mathbf E}}
+\newcommand{\Mbf}{{\mathbf M}}
+\newcommand{\Sbf}{{\mathbf S}}
+\newcommand{\Vbf}{{\mathbf V}}
+\newcommand{\nablabf}{\mbox{\boldmath${\nabla}$}}
+
+%%%%%% section and subsection properties
+\usepackage{titlesec}
+\usepackage{sectsty}
+% set section/subsections HEADINGS font and color
+\sectionfont{\color{MyColor1}}  % sets colour of sections
+\subsectionfont{\color{MyColor1}}  % sets colour of sections
+% set section enumerator to arabic number (see footnotes markings alternatives)
+\renewcommand\thesection{\arabic{section}.} %define sections numbering
+\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+% define new section style
+\newcommand{\mysection}{
+\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
+{\thesection} {3pt} {} } 
+
+%%%%%% Figure caption properties
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\captionsetup[figure]{labelfont={color=Turquoise}}
+
+%%%%%% Using amsmath package to redefine eq. numeration (1.1, 1.2, ...) 
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+
+%%%%%%%%%%%%%%%%%%% additional stuffs and links
+\makeatletter
+\let\reftagform@=\tagform@
+\def\tagform@#1{\maketag@@@{(\ignorespaces\textcolor{red}{#1}\unskip\@@italiccorr)}}
+\renewcommand{\eqref}[1]{\textup{\reftagform@{\ref{#1}}}}
+\makeatother
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Tokamak Dimensioning\\
+\emph{(Lecture, Master on Fusion Science)} \\--\\}
+
+\author{J. Hillairet, Y. Sarazin, et al.}
+\date{\today}
 
 \begin{document}
 
 \maketitle
 
-\section{Fusion power}
-The fusion power per unit volume produced by the fusion of the nuclei of Deuterium and Tritium is: 
-
-\begin{equation}
-    p_{DT} = n_D n_T \left< \sigma v \right> E_{DT}
-\end{equation}
-
-with $n_D$ and $n_T$ the deuterium and tritium density ($[\mathrm{m}^{-3}]$), $\left< \sigma v \right>$ the rate of XX and $E_{DT}$ the energy released per reaction ($[\mathrm{eV}]$). If one assumes in particular an equal deuterium and tritium densities:
-
-\begin{equation}
-    n_D = n_T = \frac{n}{2}
-\end{equation}
-
-then the thermonuclear power density is:
-
-\begin{equation}
-        p_{DT} = \frac{1}{4} n^2 \left< \sigma v \right> E_{DT}
-\end{equation}
- 
-
+\input{sec_introduction.tex}
+\input{sec_governing_relations.tex}
+\input{sec_tokamak_dimensioning.tex}
+\input{sec_acknowledgments.tex}
+\input{sec_appendix.tex}
 
 \bibliographystyle{plain}
-%\bibliography{references}
-\bibliography{references_mendeley}
+\bibliography{references}
+%\bibliography{references_mendeley}
 \end{document}
