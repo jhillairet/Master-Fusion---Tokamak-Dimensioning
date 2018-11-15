@@ -3,3 +3,49 @@
 %==============================================
 \section{Fusion power and momentum conservation}
 \label{appendix:fusion_power}
+
+Deuterium-tritium fusion reactions result from inelastic collisions, for which momentum is conserved, not energy. The total kinetic energy release for a single reaction amounts to $\hat E_0 = 17.59$MeV. So as to evaluate the fraction of energy carried out by the neutron, relativistic corrections have to be taken into account. The method is detailed below. \\
+
+Let's admit that it is sufficient to account for relativistic corrections for neutrons only\footnote{Within the classical framework, one would predict that the neutron carries 4 fifth of the total energy, i.e. about $\hat E_n \approx 14.07$MeV. At this energy, it turns out that the velocity of neutrons reaches approximately 17\% of the speed of light ($v_n/c = (2.10^6e\hat E_n/m_n)^{1/2}/c \approx 0.17$). Relativistic corrections cannot be ignored in this case. Conversely, heavier $\alpha$ particles move at about 4\% the speed of light. Relativistic corrections can be neglected for them.}. $\alpha$ particles will be treated within the classical framework.
+Momentum conservation then reads:
+\begin{equation}
+    m_n \gamma_n v_n = m_\alpha v_\alpha
+    \label{eq:conserv_momentum}
+\end{equation}
+with $\gamma_n = (1-v_n^2/c^2)^{-1/2}$ the Lorentz factor for the neutrons. In the limit $v_n/c \ll1$,  $\gamma_n$ can be Taylor expanded, so that eq.\ref{eq:conserv_momentum} can be recast as follows:
+\begin{equation}
+    u \left( 1+\frac{\epsilon}{2}\; u^2 \right) 
+    = 1
+    \label{eq:conserv_momentum2}
+\end{equation}
+with $u \doteq v_n/(\mu v_\alpha)$, $\mu \doteq m_\alpha/m_n$ and $\epsilon \doteq \mu (v_\alpha/c)\ll1$. It is sufficient to look for perturbative solutions of the form: 
+$$ u = u_0 + u_1 \;\;\; \textrm{with} \;\; u_1\ll u_0 $$
+The leading order yields $u_0=1$. At next order, one readily finds:
+$$ u_1 = -\frac{\epsilon^2}{2} \; u_0^3 $$
+So that, in the end:
+\begin{equation}
+    v_n \simeq \mu v_\alpha \left( 1-\frac{\epsilon^2}{2}\right)
+\end{equation}
+where we recall that $\mu=m_\alpha/m_n$.
+The kinetic energy of the neutron can then be expressed as a function of the one of the $\alpha$ particle:
+\begin{eqnarray}
+    E_n &=& m_nc^2(\gamma_n-1) \approx 
+    \frac{1}{2} m_nv_n^2\left[ 1+ \frac{3}{4}\frac{v_n^2}{c^2}\right] \nonumber \\
+    &\approx& \mu\; E_\alpha \left( 1-\frac{\epsilon^2}{4}\right)
+\end{eqnarray}
+
+The kinetic energy of the $\alpha$ particle $E_\alpha$ can then be expressed as a function of the total energy $E_0$ ($E_0 =E_\alpha + E_n$). Elementary algebra leads to the following relation:
+\begin{equation}
+    E_\alpha^2 - \frac{2(1+\mu)}{\mu^2}E_{n0}\, E_\alpha + \frac{2}{\mu^2}\; E_{n0}E_0 = 0
+\end{equation}
+where $E_{n0} = m_nc^2$ stands for the mass energy of the neutron. We have used the relation $\epsilon^2 = 2\mu\; E_\alpha/E_{n0}$. The only acceptable solution is\footnote{Notice that, at leading order in $E_0/E_{n0}\ll1$, this solution simply reduces to $E_\alpha \approx E_0/(1+\mu)$.}:
+\begin{equation}
+    E_\alpha = \frac{1+\mu}{\mu^2}
+    \left( 1 - \sqrt{1-\frac{2\mu^2}{(1+\mu)^2}\frac{E_0}{E_{n0}}}\right)\; E_{n0}
+\end{equation}
+When performing the numerical calculation, it should be warned that $\mu\neq 4$. 
+Indeed, the mass of the $\alpha$ particle is slightly less than the sum of its components (actually, this mass difference $\Delta m \approx 0.0187\; m_p$ leads to the energy release of the D-T fusion reaction $E_0 = \Delta m\;c^2$). The masses can be found in reference \cite{Wesson2004}. In particular, $m_n \approx (1+0.001378)\, m_p$ and:
+$$
+    \mu \doteq \frac{m_\alpha}{m_n} \approx (1-0.027404)\; \frac{m_p}{m_n} \approx 3.967
+$$
+With these data, one finally obtains $\hat E_\alpha \approx 3.56$MeV, which corresponds to the published value.  
