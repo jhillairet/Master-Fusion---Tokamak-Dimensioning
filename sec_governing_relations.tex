@@ -32,19 +32,19 @@ Introducing the inverse aspect ratio $\varepsilon$ defined as $\varepsilon  \dot
 %----------------------------------------------
 \subsection{Plasma current}
 Integrating the Maxwell-Amp\`ere equation over the whole plasma cross-section, and using Stokes' theorem, one gets:
-\begin{equation}
+\begin{equation*}
 \int_\mathcal{S} (\nablabf\times \Bbf) \cdot \mathbf{dS} = 
 \oint_\mathcal{C} \mathbf{B} \cdot \mathbf{d\ell}
 = \mu_0 \int_\mathcal{S} \jbf \cdot \mathbf{dS} = \mu_0 I_p
-\end{equation}
+\end{equation*}
 Neglecting the elongation of the cross-section, the equation can be approximated as follows
 $$
 2\pi a B_p = \mu_0 I_p
 $$
 with $B_p$ the poloidal component of the magnetic field at the separatrix. In the limit of large aspect ratios, it can be easily related to the safety factor $q_a$ at the separatrix\footnote{Actually, $q_a$ is usually taken slightly inside the separatrix, at 95$\%$ of the poloidal magnetic flux.}:
-\begin{equation}
+\begin{equation*}
 q_a \doteq \frac{a}{R} \frac{B_t}{B_p} 
-\end{equation}
+\end{equation*}
 with $B_t$ the toroidal component of the magnetic field at the magnetic axis. Then it comes:
 \begin{equation}
 \boxed{\hat I_p = C_I \frac{\varepsilon^2}{q_a} \; R B}
@@ -65,9 +65,9 @@ From \cite[eq.(14.146)]{Freidberg2007}, the most common empirical scaling for (l
 \end{equation}
 with $C_n = 10/\pi \approx 3.18$.
 Using the expression of the plasma current given above, and replacing $\mu_0$ by its value, $\hat n_G$ can be recast as follows:
-\begin{equation}
+\begin{equation*}
 \hat n_G = C_nC_I \frac{B}{q_aR}
-\end{equation}
+\end{equation*}
 Finally, one introduces the normalised density $n_N\doteq n/ n_G$, so that:
 \begin{equation}
   \hat n = C_nC_I\; n_N\; \frac{B}{q_aR}
@@ -87,9 +87,9 @@ where $\beta_\%=10^2\, \beta$ is expressed in $\%$ and $C_\beta = 4.\,10^2\mu_0\
 Several modes (such as e.g. kink, tearing or ballooning modes) become MHD unstable above certain thresholds of pressure gradient and plasma current, so that one can expect that $\beta$ will be subject to a stability limitation which will likely depend on the plasma current. \emph{``However, the concept of $\beta$ limit is not precise. Stability depends on profiles, and any optimisation introduces the questions of which modes of instability to include and what mode numbers to allow. Furthermore, there is uncertainty as to the severity of the nonlinear consequences of the various modes. Nevertheless the intrinsic usefulness of a concise analytic $\beta$ limit in assessing possible tokamak performance has prompted a number of investigations''} \cite{Wesson2004}.
 
 It turns out that the $\beta$ limit, i.e. the maximum stable $\beta$, scales approximately like $\varepsilon/q_a$, which can be recast as $(\mu_0/2\pi)\; I_p/aB$ from the above relations. We shall define $\beta_m$ as follows:
-\begin{equation}
+\begin{equation*}
   \beta \leqslant \beta_m \doteq g\; \frac{\hat I_p}{a B}
-\end{equation}
+\end{equation*}
 The coefficient of proportionality $g$ depends on the considered instabilities. The so-called "Troyon limit" \cite{Troyon1984} puts this coefficient to $2.8\, 10^{-2}$ (or 2.8 if $\beta$ is expressed in $\%$).
 It is usual to introduce the normalised $\beta$, called $\beta_N$, defined by \cite[eq.(13.146)]{Freidberg2007}:
 \begin{equation}
@@ -108,19 +108,19 @@ Interestingly, using the above expression and that of the plasma current (\ref{e
 \subsection{Fusion power}
 
 To get nuclear fusion, nuclei have to come close enough to each other. Nuclear forces can overcome their mutual electrostatic repulsion provided their distance becomes of the order of 1 Fermi ($10^{-15}$m). This would require temperatures of the order of 720 keV for head-on collisions of thermal particles to lead to fusion reactions in a classical way. Actually, quantum physics has to be taken into account in the process. Both in tokamaks and in stars interiors, fusion reactions take place predominantly due to the tunnel effect. Crossing this barrier can be quantified in a probabilistic manner with the reaction rate $R$ $[\mathrm{reaction/m^3 s}]$, defined as the probability of reaction per unit time and volume. The reaction rate between mono-energetic ions of density $n_1$ $\mathrm{[m^{-3}]}$ striking target ions of density $n_2$ $\mathrm{[m^{-3}]}$ is proportional to the effective cross-section area $\sigma$ $\mathrm{[m^2]}$ and to the velocity difference $v_{12}$ between the two species:
-\begin{equation}
+\begin{equation*}
 r_{12} = n_1 n_2 \; \sigma v_{12}
-\end{equation}
+\end{equation*}
 The quantity  $\sigma v_{12}$, which depends on the kinetic energy of the colliding particles, is called the reactivity ($\mathrm{[m^3/s]}$). Note that the reaction rate $r_{12}$ is proportional to the square of the density of the mixture. In fusion plasmas, ions are not mono-energetic. They are assumed to have Maxwellian velocity distributions. The average reactivity $\langle \sigma v \rangle_{12}$ derives from the following expression:
-\begin{equation}
+\begin{equation*}
 \left < \sigma v \right >_{12} 
 = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} 
 \sigma(v_{12}) v_{12}\;  f_1(v_1) f_2(v_2) \; dv_1dv_2
-\end{equation}
+\end{equation*}
 Finally, the average reaction rate $R_{12}$ reads:
-\begin{equation}
+\begin{equation*}
 R_{12} = n_1 n_2 \; \left < \sigma v \right >_{12}
-\end{equation}
+\end{equation*}
 It governs the time evolution of both densities: $dn_1/dt = dn_2/dt = -R_{12}$.
 The temperature dependence of the reactivity $\langle \sigma v \rangle_{12}$ is plotted on figure \ref{fig:reactivity} for several fusion reactions (data from \cite{Huba2013}).
 
@@ -132,34 +132,34 @@ The temperature dependence of the reactivity $\langle \sigma v \rangle_{12}$ is 
 \end{center}
 \end{figure}
 
-The D-T reactivity reaches its maximum for a temperature of 64 keV, corresponding to a temperature of $742\,10^6$ K. Since it has the highest reaction rate, the D-T reaction is the “easiest” to initiate (maximum reactivity at lowest temperature) of all fusion reactions and is the targeted fusion reaction\cite{FusionCEA1987}: 
-\begin{equation}
+The D-T reactivity reaches its maximum for a temperature of 64 keV, corresponding to a temperature of $742\,10^6$ K. Since it has the highest reaction rate, the D-T reaction is the “easiest” to initiate (maximum reactivity at lowest temperature) of all fusion reactions and is the targeted fusion reaction \cite{FusionCEA1987}: 
+\begin{equation*}
 \mathrm{D + T} \longrightarrow \mathrm{{}^4 He~(3.56~MeV) + n~(14.03~MeV)}
-\end{equation}
-The D-T reaction leads to a total released energy of $E_{DT}$ = 17.59 \si{MeV} = $2.82\times 10^{-12} \si{J}$ per fusion reaction\footnote{This value can be compared to the 200 MeV released by $^{235}$U fission. Yet, the energy release \emph{per nucleon} ($i.e.$ per kilogram) is approximately 4 times larger for fusion than for fission reactions.}. Notice that the ratio of the total energy to that carried by the alpha particles $\lambda \doteq 17.59/3.56 \approx 4.94$ is not exactly equal to 5 as one would expect on the basis of momentum conservation. Actually, this ratio \emph{is obviously} consistent with momentum conservation, as it should, provided one takes into account relativistic effects. This point is detailed in appendix \ref{appendix:fusion_power}.
+\end{equation*}
+The D-T reaction leads to a total released energy of $E_{DT}$ = 17.59 \si{MeV} = $2.82\times 10^{-12} \si{J}$ per fusion reaction\footnote{This value can be compared to the 200 MeV released by $^{235}$U fission. Yet, the energy release \emph{per nucleon} ($i.e.$ per kilogram) is approximately 4 times larger for fusion than for fission reactions.}. Notice that the ratio of the total energy to that carried by the alpha particles $\lambda \doteq 17.59/3.56 \approx 4.94$ is not exactly equal to 5 as one would expect on the basis of momentum conservation. Actually, this ratio \emph{is obviously} consistent with momentum conservation, as it should, provided one takes into account relativistic effects. This point is detailed in section \ref{appendix:fusion_power}.
 
 The fusion power per unit volume $p_{DT}$ produced by the fusion of the nuclei of deuterium and tritium reads: 
-\begin{equation}
+\begin{equation*}
   p_{DT} = n_D n_T \left< \sigma v \right>_{DT} E_{DT}
-\end{equation}
+\end{equation*}
 with $n_D$ and $n_T$ the deuterium and tritium density and $\left< \sigma v \right>_{DT}$ the D-T reactivity. Assuming equal deuterium and tritium densities:
-\begin{equation}
+\begin{equation*}
   n_D = n_T = \frac{n}{2}
-\end{equation}
+\end{equation*}
 with $n$ the electron density, then the thermonuclear power density is:
-\begin{equation}
+\begin{equation*}
   p_{DT} = \frac{1}{4} n^2 \left< \sigma v \right>_{DT} E_{DT}
-\end{equation}
+\end{equation*}
 
 Assuming a constant reactivity in the plasma (``flat profile hypothesis'') and using the tore volume \ref{eqn:tore_volume}, the fusion power then reads:
-\begin{equation}
+\begin{equation*}
   P_{DT} = \frac{\pi^2 \kappa \varepsilon^2}{2} 
   R^3 n^2 \left< \sigma v \right>_{DT} E_{DT}
-\end{equation}
-In the temperature range 10.3-18.5 keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by\cite[(1.5.4)]{Wesson2004}: 
-\begin{equation}
+\end{equation*}
+In the temperature range 10.3-18.5 keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
+\begin{equation*}
   \left< \sigma v \right>_{DT} \approx 1.18\, 10^{-24}\; \hat T^2 \;\si{\left[m^3 s^{-1}\right]}
-\end{equation}
+\end{equation*}
 All in all, one gets (in MW):
 \begin{equation}
   \hat P_{DT} = C_{fus} \kappa \varepsilon^2 R^3 \hat n^2 \hat T^2  
@@ -173,9 +173,9 @@ Notice that the fusion power can also be expressed in terms of $\beta_N$by using
 \label{eq:DT_fusion_power_betaN}
 \end{equation}
 This total fusion power is distributed among the alpha particles and the neutrons: 
-\begin{equation}
+\begin{equation*}
   P_{DT} = P_\alpha + P_n = \lambda \; P_\alpha
-\end{equation}
+\end{equation*}
 where we recall that $\lambda \approx 4.94$. Due to the mass ratio, almost 80\% of the power is carried by the neutrons. 
 
 %----------------------------------------------
@@ -211,10 +211,10 @@ Replacing $P_{DT}$ by its expression eq.\ref{eq:DT_fusion_power}, one finally ob
 \subsection{Power loss and energy confinement time}
 
 The total internal energy of the plasma reads as follows:
-\begin{equation}
+\begin{equation*}
   W  = \int \frac{3}{2} k_B \left( n_e T_e + n_i Ti \right ) dV 
   \approx \int 3 n k_BT dV
-\end{equation}
+\end{equation*}
 where the integral is performed over the plasma volume. Here, equal ion and electron temperatures have been assumed. Assuming flat density and temperature profiles and using the expression of the volume of a torus eq.\ref{eqn:tore_volume}, the total plasma internal energy then reads (in [MW.s]):
 \begin{equation}
   \hat W = C_{loss} \kappa \varepsilon^2  \hat n \hat T R^3
@@ -256,9 +256,9 @@ The Lawson criterion corresponds to the limit when $Q\to\infty$, $i.e.$ when the
 With our present calculation, assuming flat density and temperature profiles, one finds $\lambda C_{loss}/C_{fus} \approx 286$, which is close to the more standard value of 300. This means that, for a plasma density of $\hat n=10$ (hence $n=10^{20}\si{m^{-3}}$) at the temperature of $\hat T=10$keV, the confinement time imposed by the Lawson criterion is of order of $\tau_{E,L} \approx 3s$.
 
 It is instructive to consider how the amplification factor $Q$ varies with the energy confinement time normalised to the Lawson time, fig.\ref{fig:Q_tauE}. Combining eq.\ref{eq:nTtau_Q} and eq.\ref{eq:nTtau_Lawson}, one readily obtains:
-\begin{equation}
+\begin{equation*}
     Q = \frac{\lambda}{\tau_{E,L}/\tau_E - 1}
-\end{equation}
+\end{equation*}
 As expected, $Q$ diverges when $\tau_E = \tau_{E,L}$. Since $\lambda \approx 5$, one finds that $Q=5$ is reached for $\tau_E \approx \frac{1}{2}\; \tau_{E,L}$, and $Q=10$ for $\tau_E \approx \frac{2}{3}\; \tau_{E,L}$.
 
 \begin{figure} 
@@ -274,19 +274,19 @@ As expected, $Q$ diverges when $\tau_E = \tau_{E,L}$. Since $\lambda \approx 5$,
 \subsection{Scaling law of the energy confinement time}
 \label{sec:scaling_law}
 
-Experimental results have shown that the energy time in ELMy H-mode tokamak plasmas (referred to as the ITER IPB98(y,2) scaling law \cite[eq.(20)]{ITERphysics_chap2}) is well represented -- the root mean square error is about 15.6\% -- by the following scaling law:
-\begin{equation}
+Experimental results have shown that the energy time in ELMy H-mode tokamak plasmas (referred to as the ITER IPB98(y,2) scaling law \cite[eq.(20)]{ITERphysics_chap2}) is well represented -- the root means square error is about 15.6\% -- by the following scaling law:
+\begin{equation*}
   \tau_E = C_{SL} \hat M^{0.19} \kappa^{0.78} \varepsilon^{0.58} 
   \hat n^{0.41} \hat I_p^{0.93} R^{1.97} B^{0.15}  \hat P_{net}^{-0.69}
-\end{equation}
+\end{equation*}
 with $C_{SL} = 0.0562$.
 Here, $\hat I_p$ and $B$ are the plasma current and the toroidal magnetic field at the magnetic axis, respectively, $\hat n$ the line-averaged density, and $\hat M$ is the average ion mass (in Atomic Mass Unit)\footnote{Cf. also \url{http://fusionwiki.ciemat.es/wiki/Scaling_law}.}. 
 
 Introducing the normalised density $n_N = \hat n/\hat n_G$ (eq.\ref{eq:n_nN}) and replacing the current by its expression eq.\ref{eqn:plasma_current}, the scaling law can be recast as follows:
-\begin{equation}
+\begin{equation*}
   \tau_E = C_{SL} C_n^{0.41} C_I^{1.34} \hat M^{0.19} \kappa^{0.78} \varepsilon^{2.44} q_a^{-1.34}
   n_N^{0.41} R^{2.49} B^{1.49} \hat P_{net}^{-0.69}
-\end{equation}
+\end{equation*}
 
 One last step is to replace $\hat P_{net}$ by $\hat P_{loss}$ (eq.\ref{eq:Ploss_betaN}), which is equivalent at equilibrium, and to use the expression of the pressure in terms of $\beta_N$ (eq.\ref{eqn:nT_betaN}) to obtain the following relation:
 \begin{equation}
