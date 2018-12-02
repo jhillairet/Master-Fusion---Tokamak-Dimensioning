@@ -59,7 +59,7 @@ def beta_N1(P_DT=410, kappa=1.7, epsilon=0.323, qa=3, R=6.2, B=5.3):
                      np.sqrt(C_fus * C_I**2 * kappa * epsilon**4)
     return beta_N
 
-def beta_N2(Q=10, lambd=ratio, M=2.7, kappa=1.7, epsilon=0.323, qa=3, n_N=0.85, R=6.2, B=5.3):
+def beta_N2(Q=10, lambd=ratio, M=Meff, kappa=1.7, epsilon=0.323, qa=3, n_N=0.85, R=6.2, B=5.3):
     " beta_N from expression (2.20)"
     _nTtau = nTtau_fromQ(Q, lambd)
     numer = _nTtau**0.31
