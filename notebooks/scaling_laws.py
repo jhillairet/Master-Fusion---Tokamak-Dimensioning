@@ -15,6 +15,11 @@ C_n = 10/pi  # for n in 10^19 m^-3
 C_I = 2 * pi * 1e-6 / mu_0  # for I in MA
 ratio = 4.94  # ratio Pfus/Palpha (=5 w/o relativistic effects; =4.94 w/ relativistic effects)
 
+print(f'C_loss={C_loss}')  # OK
+print(f'C_fus={C_fus}')  # OK
+print(f'C_beta={C_beta}')  # OK
+print(f'C_n={C_n}')  # OK
+print(f'C_I={C_I}')  # OK
 
 # Additional parameters
 falpha = 0.1  # fraction of alpha particles
@@ -51,8 +56,16 @@ def nTtau_fromQ(Q=10, lambd=ratio):
     " n.T.tau_e from eq (2.18) "
     return C_loss/C_fus * Q / (1 + Q/lambd)
 
-# beta_N expressions
+# TODO : the following is not usefull later
+def nTtau_fromRBBeta(M=2.7, kappa=1.7, epsilon=0.323, qa=3, n_N=0.85, R=6.2, B=5.3, beta_N=1.8):
+    " n.T.tau_e from eq (2.20) "
+    C_SL = 0.0562
+    # (n*T*Tau)^0.31 
+    _nTTau = C_SL * C_n**0.41 * C_I **0.96 * C_beta**0.38 * M**0.19 * kappa**0.09 * \
+             epsilon**0.68 * qa**(-0.96) * n_N**0.41 * R**0.42 * B**0.73 * beta_N**(-0.38)
+    return _nTTau**(1/0.31)
 
+# beta_N expressions
 def beta_N1(P_DT=410, kappa=1.7, epsilon=0.323, qa=3, R=6.2, B=5.3):
     " beta_N from expression (2.10) "
     beta_N = qa * C_beta * np.sqrt(P_DT /(R**3 * B**4))  / \
