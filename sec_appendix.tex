@@ -1,4 +1,6 @@
 %==============================================
+\appendix
+%==============================================
 \section{Fusion power and momentum conservation}
 \label{appendix:fusion_power}
 
@@ -51,3 +53,95 @@ $$
     \mu \doteq \frac{m_\alpha}{m_n} \approx (1-0.027404)\; \frac{m_p}{m_n} \approx 3.967
 $$
 With these data, one finally obtains $E_0/E_\alpha \approx 4.94$ and $\hat E_\alpha \approx 3.56\,$MeV, which corresponds to the published value.  
+
+%==============================================
+\section{Constraint on the scaling laws}
+\label{appendix:scaling_law_dimensionless}
+
+When expressed in engineering variables, the scaling laws for the energy confinement time usually take the following generic form (cf. eq.~\eqref{eq:scaling_law_IPB98(y,2)}):
+\begin{equation}
+  \label{eq:tauE_SL_generic_a}
+  \tau_E \propto \hat M^{\alpha_M} \kappa^{\alpha_\kappa} \varepsilon^{\alpha_\epsilon} \hat n^{\alpha_n} \hat I_p^{\alpha_I} R^{\alpha_R} B^{\alpha_B} \hat P_{net}^{\alpha_P}
+\end{equation}
+First replacing $\hat I_p$ and $\hat P_{net} = \hat P_{loss}$ by their expressions eqs.~\eqref{eqn:plasma_current} and \eqref{eq:Ploss}, and considering the energy confinement time normalized to the cyclotron frequency $\omega_c = (e/m_p)\, B/\hat M$, eq.~\eqref{eq:tauE_SL_generic_a} yields:
+\begin{equation}
+\label{eq:tauE_SL_generic_b}
+  \omega_c \tau_E \propto 
+  \hat M^{\gamma\alpha_M - 1} 
+  \kappa^{\gamma(\alpha_\kappa+\alpha_P)} 
+  \varepsilon^{\gamma(\alpha_\epsilon+2\alpha_I+2\alpha_P} 
+  \hat q^{-\gamma\alpha_I} 
+  R^{\gamma(\alpha_R+\alpha_I+3\alpha_P)} 
+  B^{1 + \gamma(\alpha_B+\alpha_I)} 
+  \hat T^{\gamma\alpha_P}
+  \hat n^{\gamma(\alpha_n+\alpha_P)} 
+\end{equation}
+where the following definition has been introduced:
+$$ 
+  \gamma \doteq \frac{1}{1+\alpha_P}
+$$
+
+Scale invariance properties play a major role in physics: by determining which transforms leave invariant the underlying equations, one can constrain the structure of some key quantities. Especially, as stated in \cite{Connor1977}: ``if the basic equations of plasma behavior [...] are invariant under a certain group of transformations, then any scaling law derived from these equations must be invariant under the same groups of transformations. It turns out that for all the conventional plasma models, this invariance property greatly circumscribes the permissible scaling laws. In other words, even though the necessary non-linear theory may be quite intractable, the mere fact that a scaling law is, in principle, derivable \emph{from certain basic equations} already provides information about that scaling law''.
+
+Now, as we shall see, this property imposes some constraints on the exponents of the scaling law, when expressed in dimensional (or engineering) variables (like eq.~\ref{eq:tauE_SL_generic_a}). \\
+
+Based on the fact that the system from which the energy confinement scaling law is derived obeys Vlasov' and Maxwell's equations, it can be shown that the associated physics can be described by a reduced set of independent dimensionless parameters, among which the normalized gyro-radius $\rho_*$, the plasma $\beta$ and the collisionality $\nu_*$ \cite{Kadomtsev1975, Connor1977}. In that spirit, all dimensional engineering variables entering the scaling of $\tau_E$ (namely $R$, $B$, $\hat n$ and $\hat T_e$) should be able to be recast as functions of $\rho_*$, $\beta$ and $\nu_*$ only when expressed in terms of the dimensionless quantity $\omega_c \tau_E$ (cf. eqs.(14-16) of ref.\cite{ITERphysics_chap2}):
+\begin{eqnarray}
+  \rho_*  &\doteq& \left( \frac{2.10^3 m_p}{e} \right)^{1/2}\; \frac{(\hat M \hat T_i)^{1/2}}{\varepsilon R B} \\
+  \beta   &\doteq& 2.10^{22}e\mu_0\; \frac{\hat n(\hat T_e+\hat T_i)}{B^2} \\
+  \nu_*   &\doteq& \nu_{ii}\; \frac{qR \varepsilon^{-3/2}}{(10^3e\, \hat T_i/\hat M m_p)^{1/2}}
+   = \frac{4.10^{13}\sqrt{\pi}\,e}{3} \frac{\ln\Lambda}{(4\pi\varepsilon_0)^2}\; 
+     Z^4 qR \varepsilon^{-3/2}\; \frac{\hat n}{\hat T_i^2}
+\end{eqnarray}
+which also reads, regarding critical dependencies:
+\begin{eqnarray}
+\rho_*  &\propto& \frac{(\hat M \hat T_e \theta_i)^{1/2}}{\varepsilon R B} \\
+\beta   &\propto& \frac{\hat n\hat T_e(1+\theta_i)}{B^2} \\
+\nu_*   &\propto& Z^4 qR \varepsilon^{-3/2}\; \frac{\hat n}{f_p \theta_i^2\hat T_e^2}
+\end{eqnarray}
+After some tedious yet simple calculus, one gets the following relations:
+\begin{eqnarray}
+\hat T_e &\propto& \left( \frac{B\beta}{\rho_*\nu_*} \right)^{2/5} \; 
+ \left\{ \frac{qZ^4}{f_p(1+\theta_i)} \left(\frac{\hat M}{\varepsilon^5\theta_i^3}\right)^{1/2} \right\}^{2/5} \\
+\hat n   &\propto& \left( B^8\rho_*^2\nu_*^2\beta^3 \right)^{1/5} \;
+ \left\{ \frac{q^2Z^8(1+\theta_i)^3}{f_p^2} \frac{\hat M}{\varepsilon^5\theta_i^3} \right\}^{-1/5}\\
+R        &\propto& \left( \frac{\beta}{\rho_*^6\nu_*B^4} \right)^{1/5}\;
+\left\{ \frac{qZ^4}{f_p(1+\theta_i)} \frac{\hat M^3\theta_i}{\varepsilon^{15/2}} \right\}^{1/5}
+\end{eqnarray}
+from which it follows that eq.\ref{eq:tauE_SL_generic_b} also reads (here, we only retain the main dimensionless parameters discussed in the literature, namely $\rho_*$, $\beta$, $\nu*$, $\hat M$, $q$, $\varepsilon$ and $\kappa$): 
+\begin{eqnarray}
+\label{eq:tauE_SL_generic_dimensionless}
+\omega_c \tau_E \propto &&
+B^{\gamma(5+3\alpha_P+5\alpha_B+\alpha_I-4\alpha_R+8\alpha_n)/5} \nonumber\\
+%Z^{4\gamma(\alpha_R+\alpha_I+3\alpha_P-2\alpha_n)/5} \;
+%f_p^{\gamma(-\alpha_R-\alpha_I-3\alpha_P+2\alpha_n)/5} \;
+%(1+\theta_i)^{\gamma(-\alpha_R-\alpha_I-8\alpha_P-3\alpha_n)/5} \;
+%\theta_i^{\gamma(\alpha_R+\alpha_I+3\alpha_P+3\alpha_n)/5} \;
+&&
+\rho_*^{\gamma(-6\alpha_R-6\alpha_I-18\alpha_P+2\alpha_n)/5} \;
+\nu_*^{\gamma(-\alpha_R-\alpha_I-3\alpha_P+2\alpha_n)/5} \;
+\beta^{\gamma(\alpha_R+\alpha_I+8\alpha_P+3\alpha_n)/5}  \nonumber\\
+&&
+\hat M^{\gamma(5\alpha_M+3\alpha_R+3\alpha_I+9\alpha_P-\alpha_n)/5 - 1}  \;
+\hat q^{\gamma(-4\alpha_I+\alpha_R+3\alpha_P-2\alpha_n)/5}  \nonumber\\
+&&
+\varepsilon^{\gamma(\alpha_\epsilon+\alpha_I/2-3\alpha_R/2-5\alpha_P/2+\alpha_n)}  \;
+\kappa^{\gamma(\alpha_\kappa+\alpha_P)} 
+\end{eqnarray}
+Now, it becomes clear that the scaling exponent of $B$ should vanish, so as to preserve the dimensionless character of $\omega_c \tau_E$ (and the subsequent fact that it should not depend on the choice of units for $B$). This constraint, sometimes referred to as the Kadomtsev constraint, leads to the following relationship:
+$$
+5+3\alpha_P+5\alpha_B+\alpha_I-4\alpha_R+8\alpha_n = 0
+$$
+When applied to the scaling exponents of the ITER IPB98(y,2) scaling law eq.\ref{eq:scaling_law_IPB98(y,2)}, this relation yields: $5-3\times 0.69+5\times0.15+0.93-4\times1.97+8\times0.41 = 0.01 \approx 0$, as expected. Expressed in dimensionless variables, this scaling law then reads as follows:
+\begin{equation}
+\label{eq:scaling_law_IPB98(y,2)_dimensionless}
+\left. \omega_c \tau_E \right|_{IPB98(y,2)}\propto 
+\rho_*^{-2.68} \;
+\nu_*^{-0.01} \;
+\beta^{-0.90} 
+\hat M^{0.95} \;
+\hat q^{-2.99}  \;
+\varepsilon^{0.73}  \;
+\kappa^{0.29} \;
+\end{equation}
+This expression is consistent with eq.(21) of ref.\cite{ITERphysics_chap2}\footnote{Actually, eq.(21) of ref.\cite{ITERphysics_chap2} exhibits a slightly different form, since $\tau_E$ is expressed as function of the Bohm time $\tau_B \propto \varepsilon^2R^2B\hat T_i^{-1}$. Notice that $\omega_c\tau_B \propto \rho_*^{-2}$. Also, the scaling exponent of $\kappa$ is wrong (cf. $e.g.$ [D. McDonald, Nuclear Fusion 47 (2007) 147], p.167, eq.(8)): it should read $\alpha_\kappa = 3.3$. Then, replacing $C_I$ by $\kappa C_I$ in our calculations, as suggested by eq.(17) of ref.\cite{ITERphysics_chap2}, one then finds that the $\kappa$ exponent in eq.\ref{eq:tauE_SL_generic_dimensionless} should read $\gamma(\alpha_\kappa+\alpha_P+\alpha_I)$ (instead of $\gamma(\alpha_\kappa+\alpha_P)$). As expected, it is equal to 3.29 in this case.}. In particular, notice the strong dependency of the energy confinement time with respect to $\rho_*$. This power coefficient, close to 3, is reminiscent of the so-called \emph{gyro-Bohm} transport, where the effective turbulent diffusivity scales like $\chi_\perp \sim \rho_* \chi_{B}$, with $\chi_B = T/eB$ the Bohm diffusion coefficient. This unfavorable scaling explains why large performance gains can only be achieved in large machines, like ITER.

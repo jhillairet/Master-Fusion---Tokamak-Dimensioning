@@ -276,11 +276,14 @@ As expected, $Q$ diverges when $\tau_E = \tau_{E,L}$. Since $\lambda \approx 5$,
 
 Experimental results have shown that the energy time in ELMy H-mode tokamak plasmas (referred to as the ITER IPB98(y,2) scaling law \cite[eq.(20)]{ITERphysics_chap2}) is well represented -- the root means square error is about 15.6\% -- by the following scaling law:
 \begin{equation*}
+  \label{eq:scaling_law_IPB98(y,2)}
   \tau_E = C_{SL} \hat M^{0.19} \kappa^{0.78} \varepsilon^{0.58} 
   \hat n^{0.41} \hat I_p^{0.93} R^{1.97} B^{0.15}  \hat P_{net}^{-0.69}
 \end{equation*}
 with $C_{SL} = 0.0562$.
 Here, $\hat I_p$ and $B$ are the plasma current and the toroidal magnetic field at the magnetic axis, respectively, $\hat n$ the line-averaged density, and $\hat M$ is the average ion mass (in Atomic Mass Unit)\footnote{Cf. also \url{http://fusionwiki.ciemat.es/wiki/Scaling_law}.}. 
+It is important to realize that the exponents of the power law are actually bound by critical relations, which derive from the invariance properties of the underlying governing equations, namely Vlasov and Maxwell's equations. These relations are sometimes called the ``Kadomtsev constraints'', acknowledging his decisive contribution \cite{Kadomtsev1975} to import in the field of fusion science the pioneering works of Buckingham on scale invariance \cite{Buckingham1914}\footnote{On the question of dimensional analysis applied to physics in general, see also reference \cite{Misic2010}, and references \cite{Connor1977, Luce2008} for the specific case of fusion plasmas.}. For instance, as recalled in \cite{ITERphysics_chap2} (p.2204), a standard constraint imposes the relation 
+$4\alpha_R - 8\alpha_n - \alpha_I - 3\alpha_P - 5\alpha_B = 5$, with $\alpha_X$ the exponent of variable $X$ in the scaling law. The rationale is briefly recalled in Appendix~\ref{appendix:scaling_law_dimensionless}.
 
 Introducing the normalised density $n_N = \hat n/\hat n_G$ (eq.\ref{eq:n_nN}) and replacing the current by its expression eq.\ref{eqn:plasma_current}, the scaling law can be recast as follows:
 \begin{equation*}
@@ -291,6 +294,7 @@ Introducing the normalised density $n_N = \hat n/\hat n_G$ (eq.\ref{eq:n_nN}) an
 One last step is to replace $\hat P_{net}$ by $\hat P_{loss}$ (eq.\ref{eq:Ploss_betaN}), which is equivalent at equilibrium, and to use the expression of the pressure in terms of $\beta_N$ (eq.\ref{eqn:nT_betaN}) to obtain the following relation:
 \begin{equation}
   (\hat n\hat T\tau_E)^{0.31} = C_{SL} C_n^{0.41} C_I^{0.96} C_\beta^{0.38} 
+    C_{loss}^{-0.69}
     \hat M^{0.19} \kappa^{0.09} \varepsilon^{0.68} q_a^{-0.96}
     n_N^{0.41} R^{0.42} B^{0.73} \beta_N^{-0.38}
 \label{eq:nTtau_betaN}
