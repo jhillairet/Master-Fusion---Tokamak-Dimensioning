@@ -3,11 +3,11 @@
 \section{Introduction}
 % -------------------------------------------------------------
 \subsection{Work objectives}
-Why is ITER so large? How have been determined its main dimensions? Are these dimensions sufficient to reach its scientific goals,  i.e. produce 500 MW of fusion power for pulses of 400s with a power amplification ratio of 10 \footnote{\url{https://www.iter.org/sci/Goals}}? And what should be the size of tokamak fusion reactor: smaller or larger than ITER? How much additional power is required to reach positive power amplification? How does it affect the magnets and the plasma facing components? 
+Why is ITER so large? How have been determined its main dimensions? Are these dimensions sufficient to reach its scientific goals,  i.e. produce 500 MW of fusion power for pulses of 400s with a power amplification ratio of 10\footnote{\url{https://www.iter.org/sci/Goals}}? And what should be the size of tokamak fusion reactor: smaller or larger than ITER? How much additional power is required to reach positive power amplification? How does it affect the magnets and the plasma facing components? 
 
 Answering these questions is the main motivation for this group work. During the few days dedicated to this work, you will have to answers some of these questions by working in small groups. Interactions between groups is highly encouraged: no one can be expert of all the various physical and technological fields required to build a fusion machine, so group work is essential. When necessary, results will be shared between groups.
 
-In the first part of the work, you will derive from a 0-dimensional approach the necessary equations to deduce a couple $(R, B)$ for a given reactor project of prescribed $(P_{DT}, Q)$. By proceeding this way, some other characteristics of the plasma (namely the shape of the plasma, including elongation and aspect ratio, the average ion mass $\hat M$, the edge safety factor $q_a$ and the density $n_N$ normalised to the Greenwald density) will have to be prescribed by other considerations. This method will be applied to deduce the ITER parameters $(R, B)$. 
+In the first part of the work, you will derive from a 0-dimensional approach the necessary equations to deduce a couple $(R_0, B_0)$ for a given reactor project of prescribed $(P_{DT}, Q)$. By proceeding this way, some other characteristics of the plasma (namely the shape of the plasma, including elongation and aspect ratio, the average ion mass $\hat M$, the edge safety factor $q_a$ and the density $n_N$ normalised to the Greenwald density $n_G$) will have to be prescribed by other considerations. This method will be applied to deduce the ITER parameters $(R_0, B_0)$. 
 
 Each group results will be presented and shared with each others during the Part 1 evaluation. Once done, you will have to fix the main dimensions of the tokamak to be build. In the Part 2, groups will then focus on particular aspects of the machine: magnets, MHD stability, plasma facing components, safety and remote handling, external heating systems, etc. In case of problems, questions or design change requests, groups will be able to exchange between each other, or even to organise a general meeting in which topics affecting all groups can be discussed.
 
@@ -23,7 +23,7 @@ Each group results will be presented and shared with each others during the Part
 % -------------------------------------------------------------
 % -------------------------------------------------------------
 \section{Derivation of the Governing Relations}
-The objective of this work is to deduce the couple of geometrical parameters $(R,B)$ for a given couple of fusion power $P_{fus}$ and amplification factor $Q$. Since we are seeking two parameters, we will try to develop a 0D-approach sufficient to get two independent equations starting from the definition of $P_{fus}$ and $Q$. 
+The objective of this work is to deduce the dimensioning parameters of a tokamak machine, namely the large radius $R_0$ and the magnitude of the (toroidal) magnetic field $B_0$ (on-axis, i.e. at normalized radius $\rho=0$) for a given couple of fusion power $P_{fus}$ and amplification factor $Q$. Since we are seeking two parameters, we will try to develop a 0D-approach sufficient to get two independent equations starting from the definition of $P_{fus}$ and $Q$. 
 
 % --------------------------------------------
 \subsection{Preamble on Units}
@@ -113,7 +113,9 @@ with $a$ the minor radius and $R$ the major radius of the tore. Here, $\kappa=b/
 Introducing the inverse aspect ratio $\varepsilon$ defined as $\varepsilon  \doteq a /R$, the volume then reads:
 
 \begin{equation}
-    \boxed{V_t = C_V \varepsilon^2 R^3}
+    \boxed{
+    	V_t = C_V \varepsilon^2 R^3
+    }
     \label{eq:tore_volume}
 \end{equation}
 \noindent
@@ -121,15 +123,15 @@ with $C_V = 2\pi^2$ and $\kappa=1$\footnote{Later eventually, $\kappa$ could be 
 
 % --------------------------------------------------
 \subsubsection{Relationship 1}
-Using the tore volume, one readily obtains the fusion power:
+Using the tore volume eq.\ref{eq:tore_volume}, one readily obtains the fusion power:
 
 \begin{equation}
 \boxed{
-  P_{fus} = \frac{C_V}{4}
-  	\varepsilon^2 R^3
-	n^2 \left< \sigma v \right>_{DT} E_{DT}
+	P_{fus} = \frac{C_V}{4}
+  				\varepsilon^2 R^3
+				n^2 \left< \sigma v \right>_{DT} E_{DT}
+	}
 	\label{eq:FusionPower1}
-}
 \end{equation}
 
 This is the first equation relating $P_{fus}$ to the geometrical parameter $R$. However, it is not usable yet, since from figure \ref{fig:reactivity}, the reactivity $\left< \sigma v \right>$ clearly depends of the temperature. It will be thus necessary for the following to define the temperature at which the machine should operate. This will be part of the physical constraints discussion in the next section. 
@@ -137,15 +139,13 @@ This is the first equation relating $P_{fus}$ to the geometrical parameter $R$. 
 % --------------------------------------------------
 % --------------------------------------------------
 \subsection{Amplification factor $Q$}
-\subsubsection{Definition of $Q$}
-The plasma amplification factor is defined as the ratio of the fusion power $P_{fus}$ to the heating power supplied $P_{H}$\cite[p.12]{Wesson2004}:
-
+\subsubsection{Power Balance}
+We remind that at equilibrium, sources terms equal sink terms: heating power $P_H$ equal losses $P_{loss}$
 \begin{equation}
-Q \doteq \frac{P_{fus}}{P_{H}}
-\label{eq:definition_Q}
+	P_H = P_{loss}
+	\label{eq:power_balance_general}
 \end{equation}
-
-Importantly, notice that $Q$ \emph{does not} encompass -- by far -- the entire question of the energetic efficiency of a fusion reactor. Indeed, in particular, it does neither account for the energy used for cryogenic purposes (as required by the use of superconductors) nor for the conversion factor of thermal to electric energy\footnote{This point is often misleading for the public and it is important to be factually correct. Misleading statements concerning fusion and ITER power and energy since decades have been highlighted in \url{http://news.newenergytimes.net/2017/10/06/the-iter-power-amplification-myth/}. This led directly ITER to update its public information web pages on the Q-factor (cf. \url{https://www.iter.org/newsline/-/2845}).  Cf. also the follow-up \url{http://news.newenergytimes.net/2017/12/11/evidence-of-the-iter-power-deception/}}.
+where the losses term will be discussed later.
 
 
 To the contrary with neutrons which leave the plasma, charged $\alpha$ nuclei are confined by the magnetic field and should ideally transfer their energy to the main ions before being extracted\footnote{There are basically 2 ways for this energy transfer. Since the collision frequency scales like the velocity difference between the colliding species to the power $-3$ ($\nu_{coll,ss'}\sim n_{s'}/\Delta v_{ss'}^3$), alpha particles transfer their energy dominantly to the electrons, which are much faster due to their low inertia. Then two routes are possible for the energy transfer from the electrons to the ions. Either via collisions, or via turbulence. In the latter case, the mediator are the electrostatic plasma waves. The relative weight of those two channels is still a matter of research.}. The total -- or \emph{net} -- heating power $P_H$ is the sum of the auxiliary plasma heating (including Ohmic heating) $P_{ext}$ and of alpha heating $P_\alpha$:
@@ -155,9 +155,30 @@ P_{H} \doteq P_\alpha + P_{ext}
 \label{eq:definition_net_power}
 \end{equation}
 
+\noindent
+Hence, 
+\begin{equation}
+	P_\alpha + P_{ext} = P_{loss}
+	\label{eq:power_balance_simplified}
+\end{equation}
+
+\subsubsection{Auxiliary Heating Power: Definition of $Q$}
+The plasma amplification factor is defined as the ratio of the fusion power $P_{fus}$ to the external heating power supplied $P_{ext}$\cite[p.12]{Wesson2004}:
+
+\begin{equation}
+	Q \doteq \frac{P_{fus}}{P_{ext}}
+\label{eq:definition_Q}
+\end{equation}
+
+Importantly, notice that $Q$ \emph{does not} encompass -- by far -- the entire question of the energetic efficiency of a fusion reactor. Indeed, in particular, it does neither account for the energy used for cryogenic purposes (as required by the use of superconductors) nor for the conversion factor of thermal to electric energy\footnote{This point is often misleading for the public and it is important to be factually correct. Misleading statements concerning fusion and ITER power and energy since decades have been highlighted in \url{http://news.newenergytimes.net/2017/10/06/the-iter-power-amplification-myth/}. This led directly ITER to update its public information web pages on the Q-factor (cf. \url{https://www.iter.org/newsline/-/2845}).  Cf. also the follow-up \url{http://news.newenergytimes.net/2017/12/11/evidence-of-the-iter-power-deception/}}.
+
+
+
 
 % --------------------------------------------------
-\subsubsection{Energy Confinement time $\tau_E$}
+\subsubsection{Thermal Losses: Energy Confinement time $\tau_E$}
+
+It the following, radiations losses are neglected (at first). 
 
 The energy confinement time $\tau_E$ is usually defined as the characteristic time at which this energy is lost from the plasma due to thermal transport\footnote{This definition excludes radiative losses. It is consistent with the one used for the ITER scaling laws, discussed later.}, either by collisional conduction or by turbulent thermal convection. Defining the energy confinement time as the rate of energy loss ($P_{loss}$)\cite[p.9]{Wesson2004}:
 
@@ -183,6 +204,29 @@ Here, $\hat I_p$ and $B$ are the plasma current and the toroidal magnetic field 
 
 It is important to realize that the exponents of the power law are actually bound by critical relations, which derive from the invariance properties of the underlying governing equations, namely Vlasov and Maxwell's equations. These relations are sometimes called the ``Kadomtsev constraints'', acknowledging his decisive contribution \cite{Kadomtsev1975} to import in the field of fusion science the pioneering works of Buckingham on scale invariance \cite{Buckingham1914}\footnote{On the question of dimensional analysis applied to physics in general, see also reference \cite{Misic2010}, and references \cite{Connor1977, Luce2008} for the specific case of fusion plasmas.}. For instance, as recalled in \cite{ITERphysics_chap2} (p.2204), a standard constraint imposes the relation 
 $4\alpha_R - 8\alpha_n - \alpha_I - 3\alpha_P - 5\alpha_B = 5$, with $\alpha_X$ the exponent of variable $X$ in the scaling law. The rationale is briefly recalled in Appendix~\ref{appendix:scaling_law_dimensionless}.
+
+
+
+% --------------------------------------------------
+\subsubsection{Plasma Energy $W$}
+The total internal energy of the plasma reads as follows:
+\begin{equation*}
+W  = \int \frac{3}{2} k_B \left( n_e T_e + n_i T_i \right ) dV 
+\approx \int 3 n k_BT dV
+\end{equation*}
+
+\noindent
+where the integral is performed over the plasma volume. Here, equal ion and electron temperatures have been assumed. Assuming flat density and temperature profiles and using the expression of the volume of a torus eq.\ref{eq:tore_volume}, the total plasma internal energy then reads (in [MW.s]):
+
+\begin{equation}
+\boxed{
+	\hat W = C_{loss} C_V \varepsilon^2  \hat n \hat T R^3
+	\label{eq:total_energy}
+}
+\end{equation}
+
+\noindent
+where $C_{loss} = 3 \times 10^{19} \times 10^{-3} e$.
 
 % --------------------------------------------------
 \subsubsection{Plasma Current $I_p$}
@@ -211,8 +255,8 @@ q_a \doteq \frac{a}{R} \frac{B_t}{B_p}
 with $B_t$ the toroidal component of the magnetic field at the magnetic axis. Then it comes:
 
 \begin{equation}
-	\boxed{\hat I_p = C_I \frac{\varepsilon^2}{q_a} \; R B}
-	\label{eq:plasma_current}
+\boxed{\hat I_p = C_I \frac{\varepsilon^2}{q_a} \; R B}
+\label{eq:plasma_current}
 \end{equation}
 
 \noindent
@@ -220,50 +264,32 @@ where $\hat I_p$ is the current expressed in MA, and $C_I = 2\pi\, 10^{-6} /\mu_
 Notice that $B_t$ has been safely replaced by $B$ since $B_p\ll B_t$ in tokamak plasmas. 
 
 % --------------------------------------------------
-\subsubsection{Link between $Q$ and $\tau_e$}
-Using the definition of (\ref{eq:definition_Q}) in (\ref{eq:definition_net_power}) leads to\footnote{It would not be useful to replace the expression of $P_{fus}$ in (\ref{eq:definition_Q}) by (\ref{eq:FusionPower1}), since we are looking for a second independent equation. }:
+\subsubsection{Power Balance: the link between $Q$ and $\tau_e$}
+
+
+
+Using the definition of $Q$ (\ref{eq:definition_Q}) in (\ref{eq:definition_net_power}) leads to\footnote{It would not be useful to replace the expression of $P_{fus}$ in (\ref{eq:definition_Q}) by (\ref{eq:FusionPower1}), since we are looking for a second independent equation. }:
 
 \begin{equation}
-	P_H = P_\alpha + \frac{P_{fus}}{Q} = P_{fus} \frac{1 + Q/\lambda}{Q}
+P_H = \frac{P_{fus}}{\lambda} + \frac{P_{fus}}{Q} = P_{fus} \frac{1 + Q/\lambda}{Q}
 \end{equation}
 
-At equilibrium, the total heating power $P_H$ is equal to the loss power $P_{loss}$, i.e. $P_{H} =P_{loss}$ \footnote{Should the plasma not be at equilibrium and/or be subject to significant radiative losses in the confined region, then $P_{H}$ should be replaced by $(P_{H}-dW/dt-P_{rad})$. The subtraction of $P_{rad}$ ensures the balance equation to be consistent with the retained definition of $\tau_E$.}. Thus, one has:
+At equilibrium\footnote{Should the plasma not be at equilibrium and/or be subject to significant radiative losses in the confined region, then $P_{H}$ should be replaced by $(P_{H}-dW/dt-P_{rad})$. The subtraction of $P_{rad}$ ensures the balance equation to be consistent with the retained definition of $\tau_E$.}, i.e. from (eq.\ref{eq:power_balance_simplified}), one has:
 
 \begin{equation}
-	P_{loss} = P_{fus} \frac{1 + Q/\lambda}{Q}
+P_{fus} \frac{1 + Q/\lambda}{Q} = P_{loss}
 \end{equation}
 
 \noindent
 which can be related to the confinement time $\tau_E$ from its definition  (\ref{eq:definition_confinement_time}):
 
 \begin{equation}
-	\frac{ W }{ \tau_E } = P_{fus} \frac{1 + Q/\lambda}{Q}
-	\label{eq:link_btw_Q_and_tau_E}
+P_{fus} \frac{1 + Q/\lambda}{Q} = \frac{ W }{ \tau_E }
+\label{eq:link_btw_Q_and_tau_E}
 \end{equation}
 
 The confinement time can be expressed from the scaling law (\ref{eq:scaling_law_IPB98(y,2)}), but the plasma energy $W$ remains to be expressed.
 
-
-% --------------------------------------------------
-\subsubsection{Plasma Energy $W$}
-The total internal energy of the plasma reads as follows:
-\begin{equation*}
-W  = \int \frac{3}{2} k_B \left( n_e T_e + n_i T_i \right ) dV 
-\approx \int 3 n k_BT dV
-\end{equation*}
-
-\noindent
-where the integral is performed over the plasma volume. Here, equal ion and electron temperatures have been assumed. Assuming flat density and temperature profiles and using the expression of the volume of a torus eq.\ref{eq:tore_volume}, the total plasma internal energy then reads (in [MW.s]):
-
-\begin{equation}
-\boxed{
-	\hat W = C_{loss} C_V \varepsilon^2  \hat n \hat T R^3
-	\label{eq:total_energy}
-}
-\end{equation}
-
-\noindent
-where $C_{loss} = 3 \times 10^{19} \times 10^{-3} e$.
 
 % --------------------------------------------------
 \subsubsection{Relationship 2}
@@ -286,7 +312,7 @@ This is the second equation relating the target $(P_{fus}, Q)$ to the machine pa
 % --------------------------------------------------
 % --------------------------------------------------
 \subsection{Reactivity and Temperature range}
-HERE MORE DISCUSSION ?
+Bosh-Hale tabulation
 
 In the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
 
@@ -380,3 +406,18 @@ with $C_n = 10/\pi \approx 3.18$.
 % --------------------------------------------------
 % --------------------------------------------------
 \section{Searching for a solution}
+
+
+
+% --------------------------------------------------
+% --------------------------------------------------
+% --------------------------------------------------
+\section{Additional discussions}
+The model which has been derived can be made more realistic, taking into account the following additional parameters:
+\begin{itemize}
+	\item peaking factor in the parabolic profile
+	\item dilution factor $f_D$ $n_D = n_T = f_D \left( \frac{n}{2} \right)$. 
+	It represents the decrease of the available fuel due to non deuterium and tritium plasma species (impurities).
+	\item pulsed or steady-state device ? This needs discussion on bootstrap current, current density profile
+	\item Radiation losses
+\end{itemize} 
