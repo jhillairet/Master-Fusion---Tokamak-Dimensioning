@@ -22,12 +22,12 @@ Each group results will be presented and shared with each others during the Part
 
 % -------------------------------------------------------------
 % -------------------------------------------------------------
-\section{Derivation of the Governing Relations}
-The objective of this work is to deduce the dimensioning parameters of a tokamak machine, namely the large radius $R_0$ and the magnitude of the (toroidal) magnetic field $B_0$ (on-axis, i.e. at normalized radius $\rho=0$) for a given couple of fusion power $P_{fus}$ and amplification factor $Q$. Since we are seeking two parameters, we will try to develop a 0D-approach sufficient to get two independent equations starting from the definition of $P_{fus}$ and $Q$. 
+\section{Part 1: Derivation of the Governing Relations}
+The objective of this work is to deduce the main dimensioning parameters of a tokamak machine, namely the large radius $R_0$ and the magnitude of the (toroidal) magnetic field $B_0$ (on-axis, i.e. at normalised radius $\rho=0$) for a given couple of fusion power $P_{fus}$ and amplification factor $Q$. Since we are seeking two parameters, we will try to develop a 0D-approach sufficient to get two independent equations starting from the definition of $P_{fus}$ and $Q$. 
 
 % --------------------------------------------
 \subsection{Preamble on Units}
-The International System of Units (SI) should be used. Quantities which are \emph{not} expressed in SI units should be emphasised with a specific symbol, for example with hats ``$\hat{...}$''. When possible, try to combine all numerical values (coming from physical constants) into a single constant $C$.
+The International System of Units (SI) should be used. Quantities which are \emph{not} expressed in SI units should be emphasised with a specific symbol, for example with hats ``$\hat{...}$''. When possible, try to combine all numerical values (coming from physical constants) into a single constant $C$. In a later stage, these equations will be rewritten in a convenient set of units commonly used in tokamak physics.
 
 % --------------------------------------------
 \subsection{Fusion Power $P_{fus}$}
@@ -36,7 +36,7 @@ To get nuclear fusion, nuclei have to come close enough to each other. Nuclear f
 
 However, both in tokamaks and in stars interiors, fusion reactions take place predominantly due to the tunnel effect. Crossing this barrier can be quantified in a probabilistic manner with the reaction rate $R$ $[\mathrm{reaction/m^3 s}]$, defined as the probability of reaction per unit time and volume. 
 
-The reaction rate between mono-energetic ions of density $n_1$ $\mathrm{[m^{-3}]}$ striking target ions of density $n_2$ $\mathrm{[m^{-3}]}$ is proportional to the effective cross-section area $\sigma$ $\mathrm{[m^2]}$ and to the velocity difference $v_{12}$ between the two species:
+The reaction rate between mono-energetic ions of density $n_1$ $\mathrm{[m^{-3}]}$ striking target ions of density $n_2$ $\mathrm{[m^{-3}]}$ is proportional to the effective cross-section\footnote{The cross-section is expressed as a surface quantity and measures the probability of a reaction from a single nucleus target.} area $\sigma$ $\mathrm{[m^2]}$ and to the velocity difference $v_{12}$ between the two species:
 
 \begin{equation*}
 r_{12} = n_1 n_2 \; \sigma v_{12}
@@ -65,8 +65,10 @@ The reactivity depends of the temperature and its evolution is known from the me
 
 \begin{figure} 
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{figures/reactivity_DT.png}
-        \caption{Fusion reactivity }
+        %\includegraphics[width=0.75\textwidth]{figures/reactivity_DT.png}
+        \includegraphics[width=0.49\textwidth]{figures/Fusion_cross-section.png}
+        \includegraphics[width=0.49\textwidth]{figures/Fusion_Reactivity.png}
+        \caption{Fusion reactions cross-sections (left) and reactivity (right), data taken from \cite{Huba2013} }
         \label{fig:reactivity}
     \end{center}
 \end{figure}
@@ -139,13 +141,27 @@ This is the first equation relating $P_{fus}$ to the geometrical parameter $R$. 
 % --------------------------------------------------
 % --------------------------------------------------
 \subsection{Amplification factor $Q$}
+
+
+% -------------------------------------------------------
+\subsubsection{Definition of $Q$}
+Let's start from definition of the plasma amplification factor. The amplification factor is defined as the ratio of the fusion power $P_{fus}$ to the external heating power supplied $P_{ext}$\cite[p.12]{Wesson2004}:
+
+\begin{equation}
+	Q \doteq \frac{P_{fus}}{P_{ext}}
+\label{eq:definition_Q}
+\end{equation}
+
+Importantly, notice that $Q$ \emph{does not} encompass -- by far -- the entire question of the energetic efficiency of a fusion reactor. Indeed, in particular, it does neither account for the energy used for cryogenic purposes (as required by the use of superconductors) nor for the conversion factor of thermal to electric energy\footnote{This point is often misleading for the public and it is important to be factually correct. Misleading statements concerning fusion and ITER power and energy since decades have been highlighted in \url{http://news.newenergytimes.net/2017/10/06/the-iter-power-amplification-myth/}. This led directly ITER to update its public information web pages on the Q-factor (cf. \url{https://www.iter.org/newsline/-/2845}).  Cf. also the follow-up \url{http://news.newenergytimes.net/2017/12/11/evidence-of-the-iter-power-deception/}}.
+
+% ------------------------------------------
 \subsubsection{Power Balance}
-We remind that at equilibrium, sources terms equal sink terms: heating power $P_H$ equal losses $P_{loss}$
+At equilibrium, sources terms equal sink terms, which means that heating power $P_H$ equals losses power $P_{loss}$
 \begin{equation}
 	P_H = P_{loss}
 	\label{eq:power_balance_general}
 \end{equation}
-where the losses term will be discussed later.
+where the losses term will be discussed in the next subsections.
 
 
 To the contrary with neutrons which leave the plasma, charged $\alpha$ nuclei are confined by the magnetic field and should ideally transfer their energy to the main ions before being extracted\footnote{There are basically 2 ways for this energy transfer. Since the collision frequency scales like the velocity difference between the colliding species to the power $-3$ ($\nu_{coll,ss'}\sim n_{s'}/\Delta v_{ss'}^3$), alpha particles transfer their energy dominantly to the electrons, which are much faster due to their low inertia. Then two routes are possible for the energy transfer from the electrons to the ions. Either via collisions, or via turbulence. In the latter case, the mediator are the electrostatic plasma waves. The relative weight of those two channels is still a matter of research.}. The total -- or \emph{net} -- heating power $P_H$ is the sum of the auxiliary plasma heating (including Ohmic heating) $P_{ext}$ and of alpha heating $P_\alpha$:
@@ -156,31 +172,20 @@ P_{H} \doteq P_\alpha + P_{ext}
 \end{equation}
 
 \noindent
-Hence, 
+Hence, at equilibrium: 
 \begin{equation}
 	P_\alpha + P_{ext} = P_{loss}
 	\label{eq:power_balance_simplified}
 \end{equation}
-
-\subsubsection{Auxiliary Heating Power: Definition of $Q$}
-The plasma amplification factor is defined as the ratio of the fusion power $P_{fus}$ to the external heating power supplied $P_{ext}$\cite[p.12]{Wesson2004}:
-
-\begin{equation}
-	Q \doteq \frac{P_{fus}}{P_{ext}}
-\label{eq:definition_Q}
-\end{equation}
-
-Importantly, notice that $Q$ \emph{does not} encompass -- by far -- the entire question of the energetic efficiency of a fusion reactor. Indeed, in particular, it does neither account for the energy used for cryogenic purposes (as required by the use of superconductors) nor for the conversion factor of thermal to electric energy\footnote{This point is often misleading for the public and it is important to be factually correct. Misleading statements concerning fusion and ITER power and energy since decades have been highlighted in \url{http://news.newenergytimes.net/2017/10/06/the-iter-power-amplification-myth/}. This led directly ITER to update its public information web pages on the Q-factor (cf. \url{https://www.iter.org/newsline/-/2845}).  Cf. also the follow-up \url{http://news.newenergytimes.net/2017/12/11/evidence-of-the-iter-power-deception/}}.
-
 
 
 
 % --------------------------------------------------
 \subsubsection{Thermal Losses: Energy Confinement time $\tau_E$}
 
-It the following, radiations losses are neglected (at first). 
+It the following, radiations losses (Bremsstrahlung, cyclotronic and lines) are neglected (at first). 
 
-The energy confinement time $\tau_E$ is usually defined as the characteristic time at which this energy is lost from the plasma due to thermal transport\footnote{This definition excludes radiative losses. It is consistent with the one used for the ITER scaling laws, discussed later.}, either by collisional conduction or by turbulent thermal convection. Defining the energy confinement time as the rate of energy loss ($P_{loss}$)\cite[p.9]{Wesson2004}:
+The energy confinement time $\tau_E$ is usually defined as the characteristic time at which this energy is lost from the plasma due to thermal transport (conduction and convection)\footnote{This definition excludes radiative losses. It is consistent with the one used for the ITER scaling laws, discussed later. However some authors include the radiative loss into the loss term $P_{loss}$}, either by collisional conduction or by turbulent thermal convection. Defining the energy confinement time as the rate of energy loss ($P_{loss}$)\cite[p.9]{Wesson2004}:
 
 \begin{equation}
 	P_{loss} \doteq \frac{ W }{ \tau_E } 
