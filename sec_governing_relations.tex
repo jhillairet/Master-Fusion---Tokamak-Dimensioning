@@ -18,7 +18,7 @@ In particular, hats ``$\hat{...}$'' refer to quantities which are \emph{not} exp
 %----------------------------------------------
 \subsection{Geometry}
 
-We recall that the volume of a tore can be approximated\footnote{The expression is exact for $\kappa=1$.} by 
+We recall that the volume of a tore can be approximated by 
 \begin{equation}
 V_t = 2\pi^2 \kappa R a^2
 \end{equation}
@@ -136,11 +136,11 @@ The D-T reactivity reaches its maximum for a temperature of 64 keV, correspondin
 \begin{equation*}
 \mathrm{D + T} \longrightarrow \mathrm{{}^4 He~(3.56~MeV) + n~(14.03~MeV)}
 \end{equation*}
-The D-T reaction leads to a total released energy of $E_{DT}$ = 17.59 \si{MeV} = $2.82\times 10^{-12} \si{J}$ per fusion reaction\footnote{This value can be compared to the 200 MeV released by $^{235}$U fission. Yet, the energy release \emph{per nucleon} ($i.e.$ per kilogram) is approximately 4 times larger for fusion than for fission reactions.}. Notice that the ratio of the total energy to that carried by the alpha particles $\lambda \doteq 17.59/3.56 \approx 4.94$ is not exactly equal to 5 as one would expect on the basis of momentum conservation. Actually, this ratio \emph{is obviously} consistent with momentum conservation, as it should, provided one takes into account relativistic effects. This point is detailed in section \ref{appendix:fusion_power}.
+The D-T reaction leads to a total released energy of $E_{DT}$ = 17.59 \si{MeV} = $2.82\times 10^{-12} \si{J}$ per fusion reaction\footnote{This value can be compared to the 200 MeV released by $^{235}$U fission. Yet, the energy release \emph{per nucleon} ($i.e.$ per kilogram) is approximately 4 times larger for fusion than for fission reactions.}. Notice that the ratio of the total energy to that carried by the alpha particles $\lambda \doteq 17.59/3.56 \approx 4.94$ is not exactly equal to 5 as one would expect on the basis of momentum conservation. Actually, this ratio \emph{is obviously} consistent with momentum conservation, as it should, provided one takes into account relativistic effects. This point is detailed in Appendix~\ref{appendix:fusion_power}.
 
-The fusion power per unit volume $p_{DT}$ produced by the fusion of the nuclei of deuterium and tritium reads: 
+The fusion power per unit volume $p_{fus}$ produced by the fusion of the nuclei of deuterium and tritium reads: 
 \begin{equation*}
-  p_{DT} = n_D n_T \left< \sigma v \right>_{DT} E_{DT}
+  p_{fus} = n_D n_T \left< \sigma v \right>_{DT} E_{DT}
 \end{equation*}
 with $n_D$ and $n_T$ the deuterium and tritium density and $\left< \sigma v \right>_{DT}$ the D-T reactivity. Assuming equal deuterium and tritium densities:
 \begin{equation*}
@@ -148,47 +148,52 @@ with $n_D$ and $n_T$ the deuterium and tritium density and $\left< \sigma v \rig
 \end{equation*}
 with $n$ the electron density, then the thermonuclear power density is:
 \begin{equation*}
-  p_{DT} = \frac{1}{4} n^2 \left< \sigma v \right>_{DT} E_{DT}
+  p_{fus} = \frac{1}{4} n^2 \left< \sigma v \right>_{DT} E_{DT}
 \end{equation*}
 
 Assuming a constant reactivity in the plasma (``flat profile hypothesis'') and using the tore volume \ref{eqn:tore_volume}, the fusion power then reads:
 \begin{equation*}
-  P_{DT} = \frac{\pi^2 \kappa \varepsilon^2}{2} 
+  P_{fus} = \frac{\pi^2 \kappa \varepsilon^2}{2} 
   R^3 n^2 \left< \sigma v \right>_{DT} E_{DT}
 \end{equation*}
-In the temperature range 10.3-18.5 keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
+In the temperature range 10.3-18.5 keV\footnote{As seen on Fig.\ref{fig:reactivity}, the reactivity $\left< \sigma v \right>_{DT}$ peaks at $T\approx 66.5\,$keV. One can then legitimately wonder why targeting such an apparently (relatively) low temperature of $T\approx 15\,$keV. The answers are given in  Appendix~\ref{appendix:temperature}.}, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
 \begin{equation*}
   \left< \sigma v \right>_{DT} \approx 1.18\, 10^{-24}\; \hat T^2 \;\si{\left[m^3 s^{-1}\right]}
 \end{equation*}
 All in all, one gets (in MW):
 \begin{equation}
-  \hat P_{DT} = C_{fus} \kappa \varepsilon^2 R^3 \hat n^2 \hat T^2  
+  \hat P_{fus} = C_{fus} \kappa \varepsilon^2 R^3 \hat n^2 \hat T^2  
 \label{eq:DT_fusion_power}
 \end{equation}
 with $C_{fus} \approx 17.59 \times e\times 1.18\, 10^{-24} \times 10^{2\times19}\times \pi^2/2 \approx 1.64\, 10^{-3}$. We recall here that $\hat T$ is expressed in keV, and $\hat n$ in $10^{19} \, \si{m^{-3}}$. 
 Notice that the fusion power can also be expressed in terms of $\beta_N$by using eq.\ref{eqn:nT_betaN}:
 \begin{equation}
-  \hat P_{DT} = \frac{C_{fus}C_I^2}{C_\beta^2} \frac{\kappa \varepsilon^4}{q_a^2} 
+  \hat P_{fus} = \frac{C_{fus}C_I^2}{C_\beta^2} \frac{\kappa \varepsilon^4}{q_a^2} 
     \beta_N^2 R^3 B^4 
 \label{eq:DT_fusion_power_betaN}
 \end{equation}
 This total fusion power is distributed among the alpha particles and the neutrons: 
 \begin{equation*}
-  P_{DT} = P_\alpha + P_n = \lambda \; P_\alpha
+  P_{fus} = P_\alpha + P_n = \lambda \; P_\alpha
+  \label{eq:P_alpha}
 \end{equation*}
 where we recall that $\lambda \approx 4.94$. Due to the mass ratio, almost 80\% of the power is carried by the neutrons. 
 
 %----------------------------------------------
 \subsection{Plasma heating and amplification factor Q}
 
-Conversely to neutrons which leave the plasma, charged $\alpha$ nuclei are confined by the magnetic field and should ideally transfer their energy to the main ions before being extracted\footnote{There are basically 2 ways for this energy transfer. Since the collision frequency scales like the velocity difference between the colliding species to the power $-3$ ($\nu_{coll,ss'}\sim n_{s'}/\Delta v_{ss'}^3$), alpha particles transfer their energy dominantly to the electrons, which are much faster due to their low inertia. Then two routes are possible for the energy transfer from the electrons to the ions. Either via collisions, or via turbulence. In the latter case, the mediator are the electrostatic plasma waves. The relative weight of those two channels is still a matter of research.}. The total -- or net -- heating power is the sum of the auxiliary plasma heating -- including Ohmic heating -- and of alpha heating:
+Conversely to neutrons which leave the plasma, charged $\alpha$ nuclei are confined by the magnetic field and should ideally transfer their energy to the main ions before being extracted\footnote{There are basically 2 ways for this energy transfer. Since the collision frequency scales like the velocity difference between the colliding species to the power $-3$ ($\nu_{coll,ss'}\sim n_{s'}/\Delta v_{ss'}^3$), alpha particles transfer their energy dominantly to the electrons, which are much faster due to their low inertia. Then two routes are possible for the energy transfer from the electrons to the ions. Either via collisions, or via turbulence. In the latter case, the mediator are the electrostatic plasma waves. The relative weight of those two channels is still a matter of research.}. The net heating power is the sum of the auxiliary plasma heating $P_{ext}$, of Ohmic heating $P_\Omega$ and of alpha heating $P_\alpha$, minus the radiative losses $P_{rad}$ \footnote{If the plasma is not in steady state, then $P_{net}$ would read $P_{net} = P_\alpha + P_\Omega + P_{ext} - P_{rad} - dW/dt$, with $W$ the internal energy of the plasma.}:
 \begin{equation}
-P_{net} \doteq P_\alpha + P_{ext}
+P_{net} \doteq P_\alpha + P_\Omega + P_{ext} - P_{rad}
 \label{eq:net_power}
 \end{equation}
+In the following, we will assume that the ohmic contribution is negligible. Radiative losses are discussed in Appendix \ref{appendix:radiative_losses}. For the sake of simplicity, we will replace hereafter the radiative losses by the coefficient $0\leq \gamma_{rad} \leq1$:
+\begin{equation*}
+P_{net} \doteq \gamma_{rad} (P_\alpha + P_{ext})
+\end{equation*}
 The plasma amplification factor is defined as:
 \begin{equation}
-Q \doteq \frac{P_{DT}}{P_{ext}}
+Q \doteq \frac{P_{fus}}{P_{ext}}
 \label{eq:Q}
 \end{equation}
 Importantly, notice that $Q$ \emph{does not} encompass -- by far -- the entire question of the energetic efficiency of a fusion reactor. Indeed, in particular, it does neither account for the energy used for cryogenic purposes (as required by the use of superconductors) nor for the conversion factor of thermal to electric energy\footnote{This point is often misleading for the public and it is important to be factually correct. Misleading statements concerning fusion and ITER power and energy since decades have been highlighted in \url{http://news.newenergytimes.net/2017/10/06/the-iter-power-amplification-myth/}. This led directly ITER to update its public information web pages on the Q-factor (cf. \url{https://www.iter.org/newsline/-/2845}).  Cf. also the follow-up \url{http://news.newenergytimes.net/2017/12/11/evidence-of-the-iter-power-deception/}}.
@@ -196,13 +201,13 @@ Importantly, notice that $Q$ \emph{does not} encompass -- by far -- the entire q
 The net power can therefore be expressed in terms of the fusion power and of the amplification factor:
 \begin{equation}
 \boxed{
-P_{net} = P_{DT} \; \frac{1+Q/\lambda}{Q}
+P_{net} = \gamma_{rad} P_{fus} \; \frac{1+Q/\lambda}{Q}
 }
 \label{eq:Pnet_PDT_Q}
 \end{equation}
-Replacing $P_{DT}$ by its expression eq.\ref{eq:DT_fusion_power}, one finally obtains:
+Replacing $P_{fus}$ by its expression eq.\ref{eq:DT_fusion_power}, one finally obtains:
 \begin{equation}
-  \hat P_{net} = C_{fus} \kappa \varepsilon^2 R^3 \hat n^2 \hat T^2 \; \frac{1+Q/\lambda}{Q}
+  \hat P_{net} = \gamma_{rad} C_{fus} \kappa \varepsilon^2 R^3 \hat n^2 \hat T^2 \; \frac{1+Q/\lambda}{Q}
 \label{eq:Pnet_QnTR}
 \end{equation}
 
@@ -240,17 +245,17 @@ Similarly to what we did for the D-T fusion power, $P_{loss}$ can also be expres
 
 %----------------------------------------------
 \subsection{The triple product and the Lawson criterion}
-At equilibrium, the total heating power is equal to the loss power. Using the previous definitions, this translates into $P_{net} =P_{loss}$ \footnote{Should the plasma not be at equilibrium and/or be subject to significant radiative losses in the confined region, then $P_{net}$ should be replaced by $(P_{net}-dW/dt-P_{rad})$. The subtraction of $P_{rad}$ ensures the balance equation to be consistent with the retained definition of $\tau_E$.}.
+At equilibrium, the total heating power is equal to the loss power. Using the previous definitions, this translates into $P_{net} =P_{loss}$.
 Using both expressions of the powers, more precisely eq.\ref{eq:Pnet_QnTR} and eq.\ref{eq:Ploss}, one then obtains an expression for the so-called triple product $nT\tau_E$:
 \begin{equation}
 \boxed{
-  \hat n \hat T \tau_E = \frac{C_{loss}}{C_{fus}} \frac{Q}{1+Q/\lambda} }
+  \hat n \hat T \tau_E = \frac{C_{loss}}{\gamma_{rad} C_{fus}} \frac{Q}{1+Q/\lambda} }
 \label{eq:nTtau_Q}
 \end{equation}
 
 The Lawson criterion corresponds to the limit when $Q\to\infty$, $i.e.$ when the entire plasma heating is provided by alpha heating ($P_{net}=P_\alpha$). In this case, one gets:
 \begin{equation}
-  \hat n \hat T \tau_{E,L} \doteq \frac{\lambda C_{loss}}{C_{fus}}
+  \hat n \hat T \tau_{E,L} \doteq \frac{\lambda C_{loss}}{\gamma_{rad} C_{fus}}
 \label{eq:nTtau_Lawson}
 \end{equation}
 With our present calculation, assuming flat density and temperature profiles, one finds $\lambda C_{loss}/C_{fus} \approx 286$, which is close to the more standard value of 300. This means that, for a plasma density of $\hat n=10$ (hence $n=10^{20}\si{m^{-3}}$) at the temperature of $\hat T=10$keV, the confinement time imposed by the Lawson criterion is of order of $\tau_{E,L} \approx 3s$.
@@ -302,7 +307,7 @@ One last step is to replace $\hat P_{net}$ by $\hat P_{loss}$ (eq.\ref{eq:Ploss_
 The left hand side is fully determined by the value of $Q$, cf. eq.\ref{eq:nTtau_Q}. \\
 
 In turn, eq.\ref{eq:nTtau_betaN} provides an expression of $\beta_N$ as a function of $R$, $B$ and $Q$ at prescribed values of the average ion mass $\hat M$, of geometrical variables ($\kappa$ and $\varepsilon$), of the edge safety factor $q_a$ and of the normalised density $n_N$.
-Equation \ref{eq:DT_fusion_power_betaN} is the other independent relation for $\beta_N$, expressed as a function of $R$, $B$ and $P_{DT}$ (again at prescribed $\kappa$, $\varepsilon$ and $q_a$).
+Equation \ref{eq:DT_fusion_power_betaN} is the other independent relation for $\beta_N$, expressed as a function of $R$, $B$ and $P_{fus}$ (again at prescribed $\kappa$, $\varepsilon$ and $q_a$).
 
 
 

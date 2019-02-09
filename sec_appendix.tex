@@ -1,8 +1,9 @@
-%==============================================
+%=============================================================================
 \appendix
-%==============================================
+%=============================================================================
 \section{Fusion power and momentum conservation}
 \label{appendix:fusion_power}
+%=============================================================================
 
 Deuterium-tritium fusion reactions result from inelastic collisions, for which momentum is conserved, not energy. The total kinetic energy release for a single reaction amounts to $\hat E_0 = 17.59$MeV. So as to evaluate the fraction of energy carried out by the neutron, relativistic corrections have to be taken into account. The method is detailed below. \\
 
@@ -54,9 +55,84 @@ $$
 $$
 With these data, one finally obtains $E_0/E_\alpha \approx 4.94$ and $\hat E_\alpha \approx 3.56\,$MeV, which corresponds to the published value.  
 
-%==============================================
+%=============================================================================
+\section{Optimal Temperature for a D-T fusion reactor}
+\label{appendix:temperature}
+%=============================================================================
+
+As seen on Fig.\ref{fig:reactivity}, the reactivity $\left< \sigma v \right>_{DT}$ of D-T fusion reactions peaks at $T\approx 66.5\,$keV. Yet, this temperature is not the optimal operational one, which rather falls in the range $T\approx 15\,$keV. The reasons are given in this Appendix.
+
+
+\subsection*{Minimal threshold for the Lawson criterion}
+
+A burning plasma has to satisfy the Lawson criterion \ref{eq:nTtau_Lawson}, stating that the heating power should overcome the thermal losses. In the case of flat profiles considered in this document, it also reads as follows:
+\begin{equation}
+ \label{eq:Lawson_general}
+ n\tau_E \geq C_{Lawson} 
+ \frac{Q}{1+Q/\lambda}
+ \frac{\hat T}{\left< \sigma v \right>_{DT}}
+\end{equation}
+where $C_{Lawson} = 12.10^{-22}/\hat E_{DT}$. It turns out that, within the temperature range $2\,$keV$\leq T \leq 160\,$keV, the reactivity can well be approximated by the following formula proposed by Brunelli (with an error smaller than $7\%$, which drops below $3\%$ in the range $8\leq \hat T \leq 140$ \cite{FusionCEA1987}):
+\begin{equation}
+  \left< \sigma v \right>_{DT} \approx 9.10^{-22}
+  \exp\left\{ -0.476 \left| \ln\frac{\hat T}{69} \right|^{2.25}\right\}
+  \;\;\;\textrm{m}^3.\textrm{s}^{-1}
+\end{equation}
+Obviously, the Lawson criterion is all the easier to satisfy since the right hand side of the inequality eq.\ref{eq:Lawson_general} is small. It is is plotted on Fig.\ref{fig:ntauE_Pfus_Tchoice}. It is minimal at $T\approx 26\,$keV, whatever the amplification factor $Q$.
+
+\begin{figure} 
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{figures/Fig_ntauE_Pfus_Tchoice_v3.png}
+		\caption{Left: threshold for the Lawson criterion. Right: fusion power at prescribed $\beta$.}
+		\label{fig:ntauE_Pfus_Tchoice}
+	\end{center}
+\end{figure}
+
+
+\subsection*{Thermal stability of the regime}
+
+Another important criterion has to be accounted for when considering operational regimes, dealing with thermal stability. indeed, the regime is thermally stable provided the total power absorbed by the system is a decreasing function of the temperature (the opposite would lead to a temperature divergence). This constraint translates as follows:
+\begin{equation}
+  \frac{d (P_{net} - P_{loss})}{dT} \geq 0
+  \label{eq:T_stability}
+\end{equation}
+The accurate computation would require to account for the temperature dependence of ohmic heating $P_\Omega$, of the additional heating power $P_{ext}$ and of the radiative losses $P_{rad}$ involved in the definition of $P_{net}$ (eq.\ref{eq:net_power}), as well as that of the energy confinement time $\tau_E$.
+
+Yet, it is instructive to perform the exercise by neglecting $P_{ext}$ (burning plasma), $P_\Omega$, $P_{rad}$ and the temperature dependence of $\tau_E$. Then, using the expressions of $P_\alpha$ (eq.\ref{eq:P_alpha}) and of $P_{loss}$ (eq.\ref{eq:Ploss}), equation \ref{eq:T_stability} can be recast as follows:
+%\begin{equation*}
+%\frac{d \left< \sigma v \right>_{DT}}{dT} \leq \frac{12\, \lambda}{E_{DT}} \frac{1}{n \tau_E}
+%\end{equation*}
+%or alternatively:
+\begin{equation}
+ %\hat n \tau_E \leq \frac{12.10^{-22}\, \lambda}{E_{DT} \frac{d \left< \sigma v \right>_{DT}}{dT}} 
+ \hat n \tau_E \leq \frac{12.10^{-22}\, \lambda}{E_{DT}} 
+    \left( \frac{d \left< \sigma v \right>_{DT}}{dT} \right)^{-1} \doteq \left.\hat n \tau_E\right|_{stab}
+\label{eq:T_stability_2}
+\end{equation}
+As evident on Fig.~\ref{fig:ntauE_Pfus_Tchoice} (left, inset), this curve cuts the Lawson curve $\hat n\tau_{E,L}$ at its minimum, which then appears to be a stable solution. In the end, the double product $\hat n\tau_{E}$ satisfying both the Lawson and the thermal stability criteria corresponds, within this simplified approach, to the portion of the plain black curve beyond the minimum at $T\approx 26\,$keV. 
+Incidentally, it appears that the minimum stable value is reached at $T\approx 15\,$keV. 
+
+
+\subsection*{Beta limits}
+
+The fusion power can be expressed in terms of the $\beta$ parameter. It reads:
+\begin{equation}
+\hat P_{fus} = \frac{C_{fus}}{C_\beta^2} \varepsilon^2 R^3 B^4 
+ \frac{\left< \sigma v \right>_{DT}}{\hat T^2}\; \beta 
+\end{equation}
+If one recognizes that $\beta$, rather than density $n$ and temperature $T$ separately, govern the maximal achievable power in a fusion reactor (due to $\beta$ limits associated to large scale MHD instabilities), one is then led to consider that the optimal temperature is the one that maximizes $\hat P_{fus}$. As shown on Fig.~\ref{fig:ntauE_Pfus_Tchoice}, it peaks at about $T\approx 13\,$keV.
+
+%=============================================================================
+\section{Radiative losses}
+\label{appendix:radiative_losses}
+%=============================================================================
+
+To be done...
+
+%=============================================================================
 \section{Constraint on the scaling laws}
 \label{appendix:scaling_law_dimensionless}
+%=============================================================================
 
 When expressed in engineering variables, the scaling laws for the energy confinement time usually take the following generic form (cf. eq.~\eqref{eq:scaling_law_IPB98(y,2)}):
 \begin{equation}
@@ -144,4 +220,4 @@ When applied to the scaling exponents of the ITER IPB98(y,2) scaling law eq.\ref
 \varepsilon^{0.73}  \;
 \kappa^{0.29} \;
 \end{equation}
-This expression is consistent with eq.(21) of ref.\cite{ITERphysics_chap2}\footnote{Actually, eq.(21) of ref.\cite{ITERphysics_chap2} exhibits a slightly different form, since $\tau_E$ is expressed as function of the Bohm time $\tau_B \propto \varepsilon^2R^2B\hat T_i^{-1}$. Notice that $\omega_c\tau_B \propto \rho_*^{-2}$. Also, the scaling exponent of $\kappa$ is wrong (cf. $e.g.$ [D. McDonald, Nuclear Fusion 47 (2007) 147], p.167, eq.(8)): it should read $\alpha_\kappa = 3.3$. Then, replacing $C_I$ by $\kappa C_I$ in our calculations, as suggested by eq.(17) of ref.\cite{ITERphysics_chap2}, one then finds that the $\kappa$ exponent in eq.\ref{eq:tauE_SL_generic_dimensionless} should read $\gamma(\alpha_\kappa+\alpha_P+\alpha_I)$ (instead of $\gamma(\alpha_\kappa+\alpha_P)$). As expected, it is equal to 3.29 in this case.}. In particular, notice the strong dependency of the energy confinement time with respect to $\rho_*$. This power coefficient, close to 3, is reminiscent of the so-called \emph{gyro-Bohm} transport, where the effective turbulent diffusivity scales like $\chi_\perp \sim \rho_* \chi_{B}$, with $\chi_B = T/eB$ the Bohm diffusion coefficient. This unfavorable scaling explains why large performance gains can only be achieved in large machines, like ITER.
+This expression is consistent with eq.(21) of ref.\cite{ITERphysics_chap2}\footnote{Actually, eq.(21) of ref.\cite{ITERphysics_chap2} exhibits a slightly different form, since $\tau_E$ is expressed as function of the Bohm time $\tau_B \propto \varepsilon^2R^2B\hat T_i^{-1}$. Notice that $\omega_c\tau_B \propto \rho_*^{-2}$. Also, the scaling exponent of $\kappa$ is wrong (cf. $e.g.$ [D. McDonald, Nuclear Fusion 47 (2007) 147], p.167, eq.(8)): it should read $\alpha_\kappa = 3.3$. Then, replacing $C_I$ by $\kappa C_I$ in our calculations, as suggested by eq.(17) of ref.\cite{ITERphysics_chap2}, one then finds that the $\kappa$ exponent in eq.\ref{eq:tauE_SL_generic_dimensionless} should read $\gamma(\alpha_\kappa+\alpha_P+\alpha_I)$ (instead of $\gamma(\alpha_\kappa+\alpha_P)$). As expected, it is then equal to 3.29 in this case.}. In particular, notice the strong dependency of the energy confinement time with respect to $\rho_*$. This power coefficient, close to 3, is reminiscent of the so-called \emph{gyro-Bohm} transport, where the effective turbulent diffusivity scales like $\chi_\perp \sim \rho_* \chi_{B}$, with $\chi_B = T/eB$ the Bohm diffusion coefficient. This unfavorable scaling explains why large performance gains can only be achieved in large machines, like ITER.
