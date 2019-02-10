@@ -126,8 +126,70 @@ If one recognizes that $\beta$, rather than density $n$ and temperature $T$ sepa
 \section{Radiative losses}
 \label{appendix:radiative_losses}
 %=============================================================================
+In a fusion plasma, the three most important types of radiation are: 
+\begin{itemize}
+	\item Bremsstrahlung radiation, 
+	\item line radiation, 
+	\item synchrotron radiation.
+\end{itemize}
 
-To be done...
+Bremsstrahlung radiation is the most important radiation in fusion plasma and usually dominates the two other radiation mechanisms. 
+
+% ---------------------------------------------------------------------------
+\subsection{Bremsstrahlung Radiation}
+Bremsstrahlung radiation, i.e., "braking radiation" or "deceleration radiation", is the electromagnetic radiation produced by the deceleration of a charged particle when deflected by another charged particle (typically an electron by an atomic nucleus). The power loss density can be expressed as \cite[sec.3.3]{FusionCEA1987}, \cite[sec.4.24]{Wesson2004}, \cite[sec.3.5.4]{Freidberg2007}
+
+\begin{equation}
+	S_B
+	=
+	C_B Z_{eff} n_e^2 T_e^{1/2}
+\end{equation}
+with $T$ in keV and where 
+\begin{equation*}
+	C_B 
+%	= 
+%	\left(
+%		\frac{2\sqrt{3}}{\pi}
+%	\right)
+%	\frac{16}{3}
+%	\frac{
+%			2\pi
+%			\left(
+%			\frac{e^2}{4\pi\varepsilon_0} \right)^3}
+%		{
+%			h
+%			\left( 
+%			m_e c^2
+%			\right)^{3/2}
+%		}
+\approx
+5.355 \times 10^{-37} \left[ \frac{W m^3}{ \sqrt{keV}} \right]
+\end{equation*}
+with $Z_{eff}$ the effective charge, representing the average
+charge state of species
+$s$\footnote{Species do not need to be fully ionized}, defined by:
+\begin{equation}
+	Z_{eff}
+	=
+	\frac{1}{n_e}
+	\sum_s
+	n_s Z_s^2
+	\label{eq:effective_charge}
+\end{equation}
+
+
+
+% ---------------------------------------------------------------------------
+\subsection{Line Radiation}
+line-radiation would better account for the effects of heavy impurities that are emitted from the divertor plate and first wall.
+
+TODO
+
+% ---------------------------------------------------------------------------
+\subsection{Synchrotron Radiation}
+
+TODO
+
 
 %=============================================================================
 \section{Constraint on the scaling laws}
