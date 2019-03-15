@@ -423,8 +423,8 @@ In the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out 
 
 
 
-
-
+\ref{eq:FusionPower1}
+\ref{eqn:beta_adv}
 
 % --------------------------------------------------
 % --------------------------------------------------
@@ -737,7 +737,7 @@ The model which has been derived can be made more realistic, taking into account
 
 % -------------------------------------------------------
 \subsection{Peaking factors}
-In reality, density and temperature are not constant but are function of the radial position in the plasma. During spatial integration in the later derivation, a more realistic profile should have been used. Common radial profiles are parabolic profiles, which can be defined for density and temperature as:
+In reality, density and temperature are not constant but are function of the radial position in the plasma. During spatial integrations in the later derivations, a more realistic profile could have been used. Realistic profiles can be described as parabolic profiles, which can be defined for density and temperature as:
 
 \begin{align}
 	n(\rho)
@@ -762,13 +762,21 @@ and temperature respectively. The profiles are prescribed in terms of $\rho$, a 
 Let's define a peaking factor of the temperature profile
 \begin{equation}
 	f_{pT}
-	=
+	\doteq
 	\frac{\left< T^2 \right>}{\left< T \right>^2}
 \end{equation}
 
 
 % -------------------------------------------------------
-\subsection{Dilution factor}
+\subsection{Fraction of $\alpha$ particles}
+Assuming that the plasma contains only deuterium, tritium and $\alpha$ (He) particles, 
+Let's define the ratio of $\alpha$ particles as:
+\begin{equation}
+f_\alpha
+\doteq
+\frac{n_{He}}{n_e}
+\end{equation}
+
 dilution factor $f_D$ $n_D = n_T = f_D \left( \frac{n}{2} \right)$. 
 
 
