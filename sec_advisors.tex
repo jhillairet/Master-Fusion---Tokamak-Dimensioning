@@ -369,7 +369,7 @@ However, some unknowns still remain, for instance in the expression of the fusio
 % --------------------------------------------------
 % --------------------------------------------------
 \subsection{Reactivity and Temperature range}
-Without expanding the confinement time, equilibrium relationship (\ref{eq:power_balance_general}) can be written using (\ref{eq:Pnet_QnTR_adv}) and (\ref{eq:total_energy_adv}) simplifies into:
+Without expanding the confinement time, equilibrium relationship (\ref{eq:power_balance_general}) can be written neglecting radiation using the net power (\ref{eq:Pnet_QnTR_adv}) and plasma energy (\ref{eq:total_energy_natural_units}) expressions, as:
 $$
 n \tau_E 
 =
@@ -406,7 +406,10 @@ The value of $n \tau_E$ in (\ref{eq:Lawson_criterium_temperature_adv}) are illus
 \end{figure}
 
 
-It turns out that the product $\hat n \tau_E$ is minimum for a temperature $\hat T\approx 26.8$~keV, whatever the value of $Q$. Hence the optimal target temperature to consider for D-T reactions is around 26 keV. 
+It turns out that the product $\hat n \tau_E$ is minimum for a temperature $\hat T\approx 26.8$~keV, whatever the value of $Q$. Hence the optimal target temperature to consider for D-T reactions is around 26 keV. In particular, for ignition, one must have:
+\begin{equation*}
+    n \tau_E > 15 \times 10^{19} \si{\left[m^{-3} s \right]} 
+\end{equation*}
 
 
 {\color{red}HERE ADD EXPLANATION FROM 26 to 15 keV}
@@ -414,10 +417,14 @@ It turns out that the product $\hat n \tau_E$ is minimum for a temperature $\hat
 
 In the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
 
-\begin{equation*}
+\begin{equation}
 \left< \sigma v \right>_{DT} 
 \approx 
-1.18\, 10^{-24}\; \hat T^2 \;\si{\left[m^3 s^{-1}\right]}
+1.1 \times 10^{-24}\; \hat T^2 \;\si{\left[m^3 s^{-1}\right]}
+\end{equation}
+so that the criterion for ignition becomes (assuming a flat profiles): 
+\begin{equation*}
+    n T \tau_E > 3 \times 10^{21} \si{\left[m^{-3} keV s \right]}
 \end{equation*}
 
 
@@ -426,21 +433,25 @@ In the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out 
 \ref{eq:FusionPower1}
 \ref{eqn:beta_adv}
 
+
 % --------------------------------------------------
 % --------------------------------------------------
 \subsection{Plasma Radiation}
 In a fusion plasma, the three most important types of radiation are: 
 \begin{itemize}
-	\item Bremsstrahlung radiation, 
+	\item Bremsstrahlung radiation, due to Coulomb collisions 
 	\item line radiation (when the plasma contains impurity species), 
-	\item synchrotron radiation.
+	\item cyclotron radiation, due to particle motion in a magnetic field.
 \end{itemize}
 
 Bremsstrahlung radiation is an important radiation loss in fusion plasma and usually dominates the two other radiation mechanisms for plasma temperature below then 20 keV. 
 
-% ---------------------------------------------------------------------------
+
+
+% --------------------------------------------------
+% --------------------------------------------------
 \subsection{Bremsstrahlung Radiation}
-Bremsstrahlung radiation, i.e., "braking radiation" or "deceleration radiation", is the electromagnetic radiation produced by the deceleration of a charged particle when deflected by another charged particle (typically an electron by an atomic nucleus). The power loss density can be expressed as \cite[sec.3.3]{FusionCEA1987}, \cite[sec.4.24]{Wesson2004}, \cite[sec.3.5.4]{Freidberg2007}
+Bremsstrahlung radiation, i.e., "braking radiation" or "deceleration radiation", is the electromagnetic radiation produced by the Coulomb interactions between electrons and ions. As in fusion plasma, multiple ions species are present, the power loss density can be expressed as \cite[sec.3.3]{FusionCEA1987}, \cite[sec.4.24]{Wesson2004}, \cite[sec.3.5.4]{Freidberg2007}
 
 \begin{equation}
 S_B
@@ -454,8 +465,7 @@ C_B
 5.355 \times 10^{-37} \left[ \frac{W m^3}{ \sqrt{keV}} \right]
 \end{equation*}
 with $Z_{eff}$ the effective charge, representing the average
-charge state of species
-$s$\footnote{Species do not need to be fully ionized}, defined by:
+charge state of species $s$\footnote{Species do not need to be fully ionized}, defined by:
 \begin{equation}
 Z_{eff}
 =
@@ -522,8 +532,15 @@ It is usual to introduce the normalised $\beta$, called $\beta_N$, defined by \c
 \end{equation}
 Then, the stability limit simply reads $\beta_N <g$.
 
+% --------------------------------------------------
+% --------------------------------------------------
+\subsection{Density Limit - plasma pressure}
+The expression of $\beta$ \ref{eqn:beta_adv} can also be used to set a maximum boundary of the plasma density. Indeed, in order to get a magnetically confined plasma, one must insure that $\beta < 1$. This leads to the inequality:
+\begin{equation}
+    \hat n < \frac{B^2}{C_\beta \hat T}
+\end{equation}
 
-
+For $T=15 \si{keV}$, this leads to the following  
 
 % --------------------------------------------------
 % --------------------------------------------------
@@ -590,7 +607,7 @@ The plasma energy (\ref{eq:total_energy_natural_units}) is expressed in terms of
 \begin{equation}
 \boxed{
 \hat W = C_{loss} C_V \varepsilon^2  \hat n \hat T R^3
-\label{eq:total_energy_adv}
+\label{eq:total_energy}
 }
 \end{equation}
 where $C_{loss} = 3 \times 10^{19} \times 10^{-3} e$.
