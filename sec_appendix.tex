@@ -1,6 +1,120 @@
 %=============================================================================
 \appendix
 %=============================================================================
+
+% --------------------------------------------------
+\section{Reminders}
+\subsection{Plasma Geometry}
+The usual plasma equilibrium are illustrated in figure \ref{fig:tokamakequilibrium_parameters}. If $\theta$ is the poloidal angle ($\theta=0$ on the equatorial plane), then one has the following relationships\footnote{The circular plasma corresponds to the limit case $\kappa=1$, $\delta=0$. }:
+\begin{align}
+	R =& R_0 + a \cos \left(\theta - \delta \sin\theta \right) \\
+	Z =& \kappa a \sin \theta
+\end{align}
+The ITER case corresponds to $R_0=6.2$ m, $a=2$ m, $\kappa=1.85$, $\delta=0.5$. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.39\linewidth]{figures/Tokamak_equilibrium1}
+	\includegraphics[width=0.59\linewidth]{figures/Tokamak_equilibrium2}
+	\caption{Usual plasma equilibrium geometrical parameters. Plasma elongation: $\kappa=b/a$. Plasma triangularity: $\delta=\frac{c+d}{2a}$. }
+	\label{fig:tokamakequilibrium_parameters}
+\end{figure}
+
+The volume of an elliptic tore can be approximated by:
+
+\begin{equation}
+V_t = 2\pi^2 \kappa R a^2
+\end{equation}
+
+\noindent
+with $a$ the minor radius and $R$ the major radius of the tore. Here, $\kappa=b/a$ stands for the elongation of the plasma, $b$ being the largest radius of the ellipsoid (cf figure \ref{fig:tokamakequilibrium_parameters}). $\kappa=1$ for a circular cross-section, and is larger than unity for an elongated plasma.
+
+Introducing the inverse aspect ratio $\varepsilon$ defined as $\varepsilon  \doteq a /R$, the volume then reads:
+
+\begin{equation}
+	V_t = 2\pi^2\varepsilon^2 R^3
+\label{eq:tore_volume}
+\end{equation}
+\noindent
+with $\kappa=1$. 
+
+
+%----------------------------------------------
+\subsection{Plasma current}
+Integrating the Maxwell-Amp\`ere equation over the whole plasma cross-section, and using Stokes' theorem, one gets:
+\begin{equation*}
+\int_\mathcal{S} (\nablabf\times \Bbf) \cdot \mathbf{dS} = 
+\oint_\mathcal{C} \mathbf{B} \cdot \mathbf{d\ell}
+= \mu_0 \int_\mathcal{S} \jbf \cdot \mathbf{dS} = \mu_0 I_p
+\end{equation*}
+Neglecting the elongation of the cross-section, the equation can be approximated as follows
+$$
+2\pi a B_p = \mu_0 I_p
+$$
+with $B_p$ the poloidal component of the magnetic field at the separatrix. In the limit of large aspect ratios, it can be easily related to the safety factor $q_a$ at the separatrix\footnote{Actually, $q_a$ is usually taken slightly inside the separatrix, at 95$\%$ of the poloidal magnetic flux.}:
+\begin{equation*}
+q_a \doteq \frac{a}{R} \frac{B_t}{B_p} 
+\end{equation*}
+with $B_t$ the toroidal component of the magnetic field at the magnetic axis. Then it comes:
+\begin{equation}
+\hat I_p = C_I \frac{\varepsilon^2}{q_a} \; R B
+\label{eqn:plasma_current}
+\end{equation}
+where $\hat I_p$ is the current expressed in MA, and $C_I = 2\pi\, 10^{-6} /\mu_0 = 5$  ($\mu_0 = 4\pi\, 10^{-7} \si{H.m^{-1}}$).
+Notice that $B_t$ has been safely replaced by $B$ since $B_p\ll B_t$ in tokamak plasmas. 
+
+%----------------------------------------------
+\subsection{Greenwald density}
+
+As stated in a recent topical review on the subject \cite{Greenwald2002}, \emph{``in addition to the operational limits imposed by MHD stability on plasma current and pressure, an independent limit on plasma density is observed in confined toroidal plasmas. [...] In tokamaks, [...] there is strong evidence linking the limit to physics near the plasma boundary [...]''}. As a matter of fact, the so-called Greenwald density $n_G$ is not a sharp density limit, since discharges with peaked density profiles can well operate above this value. So far, there is no widely accepted, first principles model for the density limit. Yet, the focus is currently either on mechanisms which lead to strong edge cooling, or on collisionality enhanced turbulent transport.
+
+From \cite[eq.(14.146)]{Freidberg2007}, the most common empirical scaling for (line-averaged) density limit is the following:
+\begin{equation}
+\hat n_G \doteq C_n \frac{\hat I_p}{\varepsilon^2 R^2}  
+\label{eqn:greenwald_density}
+\end{equation}
+with $C_n = 10/\pi \approx 3.18$.
+Using the expression of the plasma current given above, and replacing $\mu_0$ by its value, $\hat n_G$ can be recast as follows:
+\begin{equation*}
+\hat n_G = C_nC_I \frac{B}{q_aR}
+\end{equation*}
+Finally, one introduces the normalised density $n_N\doteq n/ n_G$, so that:
+\begin{equation}
+  \hat n = C_nC_I\; n_N\; \frac{B}{q_aR}
+  \label{eq:n_nN}
+\end{equation}
+
+%----------------------------------------------
+\subsection{Plasma beta}
+The plasma beta $\beta$ is defined as the ratio of the plasma pressure $p=2nk_BT$ (the factor 2 comes from the fact that the total temperature is considered, $i.e.$ $n(T_e+T_i)$, with the assumption of equal ion and electron temperatures) to the magnetic pressure $B^2/2\mu_0$:
+\begin{equation}
+\beta_\% \doteq \frac{p}{B^2/2\mu_0}
+ = C_\beta \frac{\hat n \hat T}{B^2}
+\label{eqn:beta}
+\end{equation}
+where $\beta_\%=10^2\, \beta$ is expressed in $\%$ and $C_\beta = 4.\,10^2\mu_0\times 10^{19}\times 10^3 e \approx 0.805$.
+
+Several modes (such as e.g. kink, tearing or ballooning modes) become MHD unstable above certain thresholds of pressure gradient and plasma current, so that one can expect that $\beta$ will be subject to a stability limitation which will likely depend on the plasma current. \emph{``However, the concept of $\beta$ limit is not precise. Stability depends on profiles, and any optimisation introduces the questions of which modes of instability to include and what mode numbers to allow. Furthermore, there is uncertainty as to the severity of the nonlinear consequences of the various modes. Nevertheless the intrinsic usefulness of a concise analytic $\beta$ limit in assessing possible tokamak performance has prompted a number of investigations''} \cite{Wesson2004}.
+
+It turns out that the $\beta$ limit, i.e. the maximum stable $\beta$, scales approximately like $\varepsilon/q_a$, which can be recast as $(\mu_0/2\pi)\; I_p/aB$ from the above relations. We shall define $\beta_m$ as follows:
+\begin{equation*}
+  \beta \leqslant \beta_m \doteq g\; \frac{\hat I_p}{a B}
+\end{equation*}
+The coefficient of proportionality $g$ depends on the considered instabilities. The so-called "Troyon limit" \cite{Troyon1984} puts this coefficient to $2.8\, 10^{-2}$ (or 2.8 if $\beta$ is expressed in $\%$).
+It is usual to introduce the normalised $\beta$, called $\beta_N$, defined by \cite[eq.(13.146)]{Freidberg2007}:
+\begin{equation}
+    \beta \doteq \beta_N \frac{\hat I_p}{a B}
+\end{equation}
+Then, the stability limit simply reads $\beta_N <g$.
+
+Interestingly, using the above expression and that of the plasma current (\ref{eqn:plasma_current}), the plasma pressure can be expressed as a function of $\beta_N$ and $B$:
+\begin{eqnarray}
+  \hat n\hat T &=& C_\beta^{-1} \beta_N \frac{\hat I_p B}{\varepsilon R} \nonumber \\
+    &=& \frac{C_I}{C_\beta}\; \frac{\varepsilon}{q_a} \;  \beta_N B^2
+  \label{eqn:nT_betaN}
+\end{eqnarray}
+
+
 \section{Fusion power and momentum conservation}
 \label{appendix:fusion_power}
 %=============================================================================
@@ -63,7 +177,7 @@ With these data, one finally obtains $E_0/E_\alpha \approx 4.94$ and $\hat E_\al
 As seen on Fig.\ref{fig:reactivity}, the reactivity $\left< \sigma v \right>_{DT}$ of D-T fusion reactions peaks at $T\approx 66.5\,$keV. Yet, this temperature is not the optimal operational one, which rather falls in the range $T\approx 15\,$keV. The reasons are given in this Appendix.
 
 
-\subsection*{Minimal threshold for the Lawson criterion}
+\subsection{Minimal threshold for the Lawson criterion}
 
 A burning plasma has to satisfy the Lawson criterion \ref{eq:nTtau_Lawson}, stating that the heating power should overcome the thermal losses. In the case of flat profiles considered in this document, it also reads as follows:
 \begin{equation}
@@ -89,7 +203,7 @@ Obviously, the Lawson criterion is all the easier to satisfy since the right han
 \end{figure}
 
 
-\subsection*{Thermal stability of the regime}
+\subsection{Thermal stability of the regime}\label{sec:thermal_stability}
 
 Another important criterion has to be accounted for when considering operational regimes, dealing with thermal stability. indeed, the regime is thermally stable provided the total power absorbed by the system is a decreasing function of the temperature (the opposite would lead to a temperature divergence). This constraint translates as follows:
 \begin{equation}
@@ -113,7 +227,7 @@ As evident on Fig.~\ref{fig:ntauE_Pfus_Tchoice} (left, inset), this curve cuts t
 Incidentally, it appears that the minimum stable value is reached at $T\approx 15\,$keV. 
 
 
-\subsection*{Beta limits}
+\subsection{Beta limits}
 
 The fusion power can be expressed in terms of the $\beta$ parameter. It reads:
 \begin{equation}

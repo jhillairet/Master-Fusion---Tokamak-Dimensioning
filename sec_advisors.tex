@@ -1,6 +1,8 @@
 % -------------------------------------------------------------
 % -------------------------------------------------------------
 \section{Introduction}
+\tableofcontents
+
 % -------------------------------------------------------------
 \subsection{Work objectives}
 Why is ITER so large? How have been determined its main dimensions? Are these dimensions sufficient to reach its scientific goals,  i.e. produce 500 MW of fusion power for pulses of 400s with a power amplification ratio of 10\footnote{\url{https://www.iter.org/sci/Goals}}? And what should be the size of tokamak fusion reactor: smaller or larger than ITER? How much additional power is required to reach positive power amplification? How does it affect the magnets and the plasma facing components? 
@@ -11,14 +13,6 @@ In the first part of the work, you will derive from a 0-dimensional approach the
 
 Each group results will be presented and shared with each others during the Part 1 evaluation. Once done, you will have to fix the main dimensions of the tokamak to be build. In the Part 2, groups will then focus on particular aspects of the machine: magnets, MHD stability, plasma facing components, safety and remote handling, external heating systems, etc. In case of problems, questions or design change requests, groups will be able to exchange between each other, or even to organise a general meeting in which topics affecting all groups can be discussed.
 
-% -------------------------------------------------------------
-\subsection{Schedule (2019)}
-\begin{itemize}
-\item Thursday and Friday 7 and 8th of March: Part 1
-\item Monday 11th of March: groups restitution
-\item From Tuesday 12th to Thursday 14th: Part 2
-\item Friday 15th of March: Final groups restitution
-\end{itemize}
 
 % -------------------------------------------------------------
 % -------------------------------------------------------------
@@ -27,57 +21,16 @@ The objective of this work is to deduce the main dimensioning parameters of a to
 
 % --------------------------------------------
 \subsection{Preamble on Units}
-The International System of Units (SI) should be used. Quantities which are \emph{not} expressed in SI units should be emphasised with a specific symbol, for example with hats ``$\hat{...}$''. When possible, try to combine all numerical values (coming from physical constants) into a single constant $C$. In a later stage, these equations will be rewritten in a convenient set of units commonly used in tokamak physics.
+The International System of Units (SI) should be used. Quantities which are \emph{not} expressed in SI units should be emphasised with a specific symbol, for example with hats ``$\hat{...}$''.
 
+When possible, try to combine all numerical values (coming from physical constants) into a single constant $C$. In a later stage, these equations will be rewritten in a convenient set of units commonly used in tokamak physics.
 
-% --------------------------------------------------
-\subsection{Reminder: plasma geometry}
-
-
-
-The usual plasma equilibrium are illustrated in figure \ref{fig:tokamakequilibrium_parameters}. If $\theta$ is the poloidal angle ($\theta=0$ on the equatorial plane), then one has the following relationships\footnote{The circular plasma corresponds to the limit case $\kappa=1$, $\delta=0$. }:
-\begin{align}
-	R =& R_0 + a \cos \left(\theta - \delta \sin\theta \right) \\
-	Z =& \kappa a \sin \theta
-\end{align}
-The ITER case corresponds to $R_0=6.2$ m, $a=2$ m, $\kappa=1.85$, $\delta=0.5$. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.39\linewidth]{figures/Tokamak_equilibrium1}
-	\includegraphics[width=0.59\linewidth]{figures/Tokamak_equilibrium2}
-	\caption{Usual plasma equilibrium geometrical parameters. Plasma elongation: $\kappa=b/a$. Plasma triangularity: $\delta=\frac{c+d}{2a}$. }
-	\label{fig:tokamakequilibrium_parameters}
-\end{figure}
-
-
-
-The volume of an elliptic tore can be approximated by:
-
-\begin{equation}
-V_t = 2\pi^2 \kappa R a^2
-\end{equation}
-
-\noindent
-with $a$ the minor radius and $R$ the major radius of the tore. Here, $\kappa=b/a$ stands for the elongation of the plasma, $b$ being the largest radius of the ellipsoid (cf figure \ref{fig:tokamakequilibrium_parameters}). $\kappa=1$ for a circular cross-section, and is larger than unity for an elongated plasma.
-
-
-Introducing the inverse aspect ratio $\varepsilon$ defined as $\varepsilon  \doteq a /R$, the volume then reads:
-
-\begin{equation}
-\boxed{
-	V_t = C_V \varepsilon^2 R^3
-}
-\label{eq:tore_volume}
-\end{equation}
-\noindent
-with $C_V = 2\pi^2$ and $\kappa=1$\footnote{Later eventually, $\kappa$ could be varied through the constant $C_V$ }. 
 
 
 % --------------------------------------------
 \subsection{Fusion Power $P_{fus}$}
 \subsubsection{Fusion reactivity}
-To get nuclear fusion, nuclei have to come close enough to each other. Nuclear forces can overcome their mutual electrostatic repulsion provided their distance becomes sufficiently close, in the order of 1 Fermi ($10^{-15}$m). %This would require temperatures of the order of 720 keV for head-on collisions of thermal particles to lead to fusion reactions in a classical way. Actually, quantum physics has to be taken into account in the process. 
+To get nuclear fusion, nuclei have to come close enough to each other. Nuclear forces can overcome their mutual electrostatic repulsion provided their distance becomes sufficiently close, in the order of $10^{-15}\si{m}$. %This would require temperatures of the order of 720 keV for head-on collisions of thermal particles to lead to fusion reactions in a classical way. Actually, quantum physics has to be taken into account in the process. 
 
 However, both in tokamaks and in stars interiors, fusion reactions take place predominantly due to the tunnel effect. Crossing this barrier can be quantified in a probabilistic manner with the reaction rate $R$ $[\mathrm{reaction/m^3 s}]$, defined as the probability of reaction per unit time and volume. 
 
@@ -106,7 +59,7 @@ R_{12} = n_1 n_2 \; \left < \sigma v \right >_{12}
 It governs the time evolution of both densities: $dn_1/dt = dn_2/dt = -R_{12}$.
 
 
-The reactivity depends of the temperature and its evolution is known from the measurements of the cross-sections. The temperature dependence of the reactivity $\langle \sigma v \rangle_{12}$ is plotted on figure \ref{fig:reactivity} for several fusion reactions (interpolated data from \cite{Huba2013}). 
+The reactivity depends of the temperature and its evolution is known from the measurements of the cross-sections. The temperature dependence of the reactivity $\langle \sigma v \rangle_{12}$ is plotted on figure \ref{fig:reactivity_adv} for several fusion reactions (interpolated data from \cite{Huba2013}). 
 
 \begin{figure} 
     \begin{center}
@@ -118,7 +71,7 @@ The reactivity depends of the temperature and its evolution is known from the me
     \end{center}
 \end{figure}
 
-Of course, there is interest in operating a fusion reactor at the lowest temperatures. Looking to the figure \ref{fig:reactivity}, the mixture D-T seems the "easiest" way to initiate fusion reactions, since the D-T reaction  has the maximum reactivity at lowest temperature of all fusion reactions. The D-T reactivity reaches its maximum for a temperature of 64 keV, corresponding to a temperature of $742\,10^6$ K. The D-T reaction is \cite{FusionCEA1987}: 
+Of course, there is interest in operating a fusion reactor at the lowest temperatures. Looking to the figure \ref{fig:reactivity_adv}, the mixture D-T seems the "easiest" way to initiate fusion reactions, since the D-T reaction  has the maximum reactivity at lowest temperature of all fusion reactions. The D-T reactivity reaches its maximum for a temperature of 64 keV, corresponding to a temperature of $742\,10^6$ K. The D-T reaction is \cite{FusionCEA1987}: 
 
 \begin{equation*}
     \mathrm{D + T} \longrightarrow \mathrm{{}^4 He~(3.56~MeV) + n~(14.03~MeV)}
@@ -145,20 +98,22 @@ Assuming a constant reactivity in the plasma ("flat profile hypothesis") and usi
     n^2 \left< \sigma v \right>_{DT} E_{DT}
 \end{equation}
 
+
+
 % --------------------------------------------------
 \subsubsection{Relationship 1}
 Using the tore volume eq.\ref{eq:tore_volume}, one readily obtains the fusion power:
 
 \begin{equation}
 \boxed{
-	P_{fus} = \frac{C_V}{4}
+	P_{fus} = \frac{2\pi^2}{4}
   				\varepsilon^2 R^3
 				n^2 \left< \sigma v \right>_{DT} E_{DT}
 	}
 	\label{eq:FusionPower1}
 \end{equation}
 
-This is the first equation relating $P_{fus}$ to the geometrical parameter $R$. However, it is not usable yet, since from figure \ref{fig:reactivity}, the reactivity $\left< \sigma v \right>$ clearly depends of the temperature. It will be thus necessary for the following to define the temperature at which the machine should operate. This will be part of the physical constraints discussion in the next section. 
+This is the first equation relating $P_{fus}$ to the geometrical parameter $R$. However, it is not usable yet, since from figure \ref{fig:reactivity_adv}, the reactivity $\left< \sigma v \right>$ clearly depends of the temperature. It will be thus necessary for the following to define the temperature at which the machine should operate. This will be part of the physical constraints discussion in the next section. 
 
 
 This total fusion power is distributed among the alpha particles and the neutrons: 
@@ -171,6 +126,26 @@ This total fusion power is distributed among the alpha particles and the neutron
 \label{eq:P_fus_Palpha}
 \end{equation}
 where we recall that $\lambda \approx 4.94$. Due to the mass ratio, almost 80\% of the power is carried by the neutrons. 
+
+\subsection{Approximation of the reactivity}
+In the temperature range 10.3-18.5 keV\footnote{As seen on Fig.\ref{fig:reactivity}, the reactivity $\left< \sigma v \right>_{DT}$ peaks at $T\approx 66.5\,$keV. One can then legitimately wonder why targeting such an apparently (relatively) low temperature of $T\approx 15\,$keV. The answers are given in  Appendix~\ref{appendix:temperature}.}, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
+\begin{equation*}
+  \left< \sigma v \right>_{DT} \approx 1.18\, 10^{-24}\; \hat T^2 \;\si{\left[m^3 s^{-1}\right]}
+\end{equation*}
+All in all, one gets (in MW):
+\begin{equation}
+  \hat P_{fus} = C_{fus} \kappa \varepsilon^2 R^3 \hat n^2 \hat T^2  
+\label{eq:DT_fusion_power}
+\end{equation}
+with $C_{fus} \approx 17.59 \times e\times 1.18\, 10^{-24} \times 10^{2\times19}\times \pi^2/2 \approx 1.64\, 10^{-3}$. We recall here that $\hat T$ is expressed in keV, and $\hat n$ in $10^{19} \, \si{m^{-3}}$. 
+Notice that the fusion power can also be expressed in terms of $\beta_N$by using eq.\ref{eqn:nT_betaN}:
+\begin{equation}
+  \hat P_{fus} = \frac{C_{fus}C_I^2}{C_\beta^2} \frac{\kappa \varepsilon^4}{q_a^2} 
+    \beta_N^2 R^3 B^4 
+\label{eq:DT_fusion_power_betaN}
+\end{equation}
+
+
 
 % --------------------------------------------------
 % --------------------------------------------------
@@ -411,11 +386,10 @@ It turns out that the product $\hat n \tau_E$ is minimum for a temperature $\hat
     n \tau_E > 15 \times 10^{19} \si{\left[m^{-3} s \right]} 
 \end{equation*}
 
+In addition, another important point is the thermal stability of the regime: the total power absorbed by the system should be a decreasing function of temperature (otherwise it would lead to a temperature divergence). With this additional constraint, it appears that the minimum stable value is reached at $T\approx 15 \si{keV}$ (cf.\ref{sec:thermal_stability}).
 
-{\color{red}HERE ADD EXPLANATION FROM 26 to 15 keV}
 
-
-In the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
+Finally, in the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
 
 \begin{equation}
 \left< \sigma v \right>_{DT} 
@@ -426,13 +400,6 @@ so that the criterion for ignition becomes (assuming a flat profiles):
 \begin{equation*}
     n T \tau_E > 3 \times 10^{21} \si{\left[m^{-3} keV s \right]}
 \end{equation*}
-
-
-
-
-\ref{eq:FusionPower1}
-\ref{eqn:beta_adv}
-
 
 % --------------------------------------------------
 % --------------------------------------------------
@@ -450,7 +417,7 @@ Bremsstrahlung radiation is an important radiation loss in fusion plasma and usu
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{Bremsstrahlung Radiation}
+\subsubsection{Bremsstrahlung Radiation}
 Bremsstrahlung radiation, i.e., "braking radiation" or "deceleration radiation", is the electromagnetic radiation produced by the Coulomb interactions between electrons and ions. As in fusion plasma, multiple ions species are present, the power loss density can be expressed as \cite[sec.3.3]{FusionCEA1987}, \cite[sec.4.24]{Wesson2004}, \cite[sec.3.5.4]{Freidberg2007}
 
 \begin{equation}
@@ -807,3 +774,5 @@ dilution factor $f_D$ $n_D = n_T = f_D \left( \frac{n}{2} \right)$.
 	\item pulsed or steady-state device ? This needs discussion on bootstrap current, current density profile
 	\item Radiation losses
 \end{itemize} 
+
+
