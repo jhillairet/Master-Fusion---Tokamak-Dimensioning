@@ -1,22 +1,23 @@
-\documentclass[11pt,a4paper,titlepage]{article}
-\usepackage[a4paper]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{microtype} %improves the spacing between words and letters
-\usepackage{natbib}
-\usepackage{graphicx}
+\documentclass[
+fontsize=10pt, % Base font size
+%twoside=false, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+%abstract=true, % Uncomment to print the title of the abstract
+%numbers=noenddot, % Comment to output dots after section numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
+%draft=true, % If uncommented, rulers will be added in the header and footer
+%overfullrule=true, % If uncommented, overly long lines will be marked by a black box; useful for correcting spacing problems
+]{kaohandt}
+
+% Choose the language
+\usepackage[english]{babel} % Load characters and hyphenation
+\usepackage[english=british]{csquotes}	% English quotes
+
+% Load the bibliography package
+\usepackage{styles/kaobiblio}
+\addbibresource{references.bib} % Bibliography file
 
 %%%%%% Math packages
-\usepackage{amsmath, amssymb, amsfonts, amsthm, fouriernc, siunitx}
-
-%%%%%% color definitions
-\usepackage[svgnames]{xcolor} % Enabling mixing colors and color's call by 'svgnames'
-\definecolor{MyColor1}{rgb}{0.2,0.4,0.6} %mix personal color
-\newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
-\newcommand{\blue}{\color{MyColor1} \usefont{OT1}{lmss}{m}{n}}
-\newcommand{\blueb}{\color{MyColor1} \usefont{OT1}{lmss}{b}{n}}
-\newcommand{\red}{\color{LightCoral} \usefont{OT1}{lmss}{m}{n}}
-\newcommand{\green}{\color{Turquoise} \usefont{OT1}{lmss}{m}{n}}
+%\usepackage{siunitx}
+\newcommand{\si}{~}  % TODO: siunitx fails 
 
 %%%%%% definitions of mathematical variables
 \newcommand{\bbf}{{\mathbf b}}
@@ -33,53 +34,39 @@
 \newcommand{\Vbf}{{\mathbf V}}
 \newcommand{\nablabf}{\mbox{\boldmath${\nabla}$}}
 
+
+%%%%%% numerote aussi les subsections
+\setcounter{secnumdepth}{3}
+
+
 %%%%%% section and subsection properties
 \usepackage{titlesec}
 \usepackage{sectsty}
 % set section/subsections HEADINGS font and color
-\sectionfont{\color{MyColor1}}  % sets colour of sections
-\subsectionfont{\color{MyColor1}}  % sets colour of sections
-% set section enumerator to arabic number (see footnotes markings alternatives)
-\renewcommand\thesection{\arabic{section}.} %define sections numbering
-\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
-% define new section style
-\newcommand{\mysection}{
-\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
-{\thesection} {3pt} {} } 
+\definecolor{ColorSection}{rgb}{0.8,0.0,0.0} %mix personal color
+\definecolor{ColorSubSection}{rgb}{0.2,0.4,0.6} %mix personal color
+\sectionfont{\color{ColorSection}}  % sets colour of sections
+\subsectionfont{\color{ColorSubSection}}  % sets colour of subsections
 
-%%%%%% Figure caption properties
-%\usepackage{caption}
-%\usepackage{subcaption}
-%\captionsetup[figure]{labelfont={color=Turquoise}}
-
-%%%%%% Using amsmath package to redefine eq. numeration (1.1, 1.2, ...) 
-\renewcommand{\theequation}{\thesection\arabic{equation}}
-
-%%%%%%%%%%%%%%%%%%% additional stuffs and links
-\makeatletter
-\let\reftagform@=\tagform@
-\def\tagform@#1{\maketag@@@{(\ignorespaces\textcolor{red}{#1}\unskip\@@italiccorr)}}
-\renewcommand{\eqref}[1]{\textup{\reftagform@{\ref{#1}}}}
-\makeatother
-\usepackage{hyperref}
-\hypersetup{colorlinks=true}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Tokamak Dimensioning\\
-\emph{(Lecture, Master on Fusion Science)} \\--\\}
+\title{Tokamak Dimensioning}
+\subtitle{Lecture, Master on Fusion Science}
 
 \author{J. Hillairet, Y. Sarazin, J.-L. Duchateau et al.}
 \date{\today}
+
+%\frontmatter % Denotes the start of the pre-document content, uses roman numerals
 
 \begin{document}
 
 \maketitle
 
+\tableofcontents
+\newpage
 \input{sec_advisors.tex}
-
+\printbibliography[title=Bibliography]% , prenote=bibnote]
 \input{sec_acknowledgments.tex}
-\bibliographystyle{plain}
-\bibliography{references}
 \newpage
 \input{sec_appendix.tex}
 
