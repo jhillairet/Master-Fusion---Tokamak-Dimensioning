@@ -1,9 +1,9 @@
 % -------------------------------------------------------------
 % -------------------------------------------------------------
-\section{Introduction}
+\chapter{Introduction}
 \margintoc
 % -------------------------------------------------------------
-\subsection{Work objectives}
+\section{Work objectives}
 Why is ITER so large? How have been determined its main dimensions? Are these dimensions sufficient to reach its scientific goals,  i.e. produce 500 MW of fusion power for pulses of 400s with a power amplification ratio of 10\marginnote{\url{https://www.iter.org/sci/Goals}}? And what should be the size of tokamak fusion reactor: smaller or larger than ITER? How much additional power is required to reach positive power amplification? How does it affect the magnets and the plasma facing components? Should a fusion reactor be larger than ITER?
 
 Answering these questions is the main motivation for this group work. During the few days dedicated to this work, you will have to answers some of these questions by working in small groups. Interactions between groups is highly encouraged: no one can be expert of all the various physical and technological fields required to build a fusion machine, so group work is essential. When necessary, results will be shared between groups.
@@ -20,7 +20,7 @@ In the first part of the work, you will derive from a 0-dimensional approach the
 Each group results will be presented and shared with each others during the Part 1 evaluation. Once done, you will have to fix the main dimensions of the tokamak to be build. In the Part 2, groups will then focus on particular aspects of the machine: magnets, MHD stability, plasma facing components, safety and remote handling, external heating systems, etc. In case of problems, questions or design change requests, groups will be able to exchange between each other, or even to organise a general meeting in which topics affecting all groups can be discussed.
 
 % --------------------------------------------
-\subsection{Preamble on Units}
+\section{Preamble on Units}
 The International System of Units (SI) should be used. Quantities which are \emph{not} expressed in SI units should be emphasized with a specific symbol, for example with hats ``$\hat{...}$''. We recommand using the following alternative units:
 
 \begin{itemize}
@@ -35,7 +35,7 @@ The International System of Units (SI) should be used. Quantities which are \emp
 When possible, try to combine all numerical values (coming from physical constants) into a single constant $C$. In a later stage, these equations will be rewritten in a convenient set of units commonly used in tokamak physics.
 
 
-\subsection{Reminder: Plasma Geometry}
+\section{Reminder: Plasma Geometry}
 The usual plasma equilibrium are illustrated in figure \ref{fig:tokamakequilibrium_parameters}. If $\theta$ is the poloidal angle ($\theta=0$ on the equatorial plane), then one has the following relationships\marginnote{The circular plasma corresponds to the limit case $\kappa=1$, $\delta=0$. }:
 \begin{align}
 R =& R_0 + a \cos \left(\theta - \delta \sin\theta \right) \\
@@ -43,13 +43,12 @@ Z =& \kappa a \sin \theta
 \end{align}
 The ITER case corresponds to $R_0=6.2$ m, $a=2$ m, $\kappa=1.85$, $\delta=0.5$. 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.39\linewidth]{figures/Tokamak_equilibrium1}
-	\includegraphics[width=0.59\linewidth]{figures/Tokamak_equilibrium2}
-	\caption{Usual plasma equilibrium geometrical parameters. Plasma elongation: $\kappa=b/a$. Plasma triangularity: $\delta=\frac{c+d}{2a}$. }
+\begin{marginfigure}[-1cm]
+	\includegraphics[width=1\linewidth]{figures/Tokamak_equilibrium1}\\
+    \includegraphics[width=1\linewidth]{figures/Tokamak_equilibrium2}
+    \caption{Usual plasma equilibrium geometrical parameters. Plasma elongation: $\kappa=b/a$. Plasma triangularity: $\delta=\frac{c+d}{2a}$. }
 	\label{fig:tokamakequilibrium_parameters}
-\end{figure}
+\end{marginfigure}
 
 The volume of an elliptic tore can be approximated by:
 
@@ -77,7 +76,7 @@ with $\kappa=1$.
 % -------------------------------------------------------------
 % -------------------------------------------------------------
 \newpage
-\section{Derivation of the Governing Relations}\margintoc
+\chapter{Derivation of the Governing Relations}\margintoc
 The objective of this work is to deduce the main dimensioning parameters of a tokamak machine, namely the large radius $R_0$ and the magnitude of the (toroidal) magnetic field $B_0$ (on-axis, i.e. at normalized radius $\rho=0$) for a given couple of fusion power $P_{fus}$ and amplification factor $Q$. Since we are seeking two parameters, we will try to develop a 0D-approach sufficient to get two independent equations starting from the definition of $P_{fus}$ and $Q$. 
 
 
@@ -85,8 +84,8 @@ The objective of this work is to deduce the main dimensioning parameters of a to
 
 
 % --------------------------------------------
-\subsection{Fusion Power $P_{fus}$}
-\subsubsection{Fusion reactivity}
+\section{Fusion Power $P_{fus}$}
+\subsection{Fusion reactivity}
 To get nuclear fusion, nuclei have to come close enough to each other. Nuclear forces can overcome their mutual electrostatic repulsion provided their distance becomes sufficiently close, in the order of $10^{-15}\si{m}$. %This would require temperatures of the order of 720 keV for head-on collisions of thermal particles to lead to fusion reactions in a classical way. Actually, quantum physics has to be taken into account in the process. 
 
 However, both in tokamaks and in stars interiors, fusion reactions take place predominantly due to the tunnel effect. Crossing this barrier can be quantified in a probabilistic manner with the reaction rate $R$ $[\mathrm{reaction/m^3 s}]$, defined as the probability of reaction per unit time and volume. 
@@ -159,7 +158,7 @@ Assuming a constant reactivity in the plasma ("flat profile hypothesis") and usi
 
 
 % --------------------------------------------------
-\subsubsection{Relationship 1: Fusion Power}
+\subsection{Relationship 1: Fusion Power}
 Using the tore volume eq.\ref{eq:tore_volume}, one readily obtains the fusion power:
 
 \begin{equation}
@@ -186,11 +185,11 @@ where we recall that $\lambda \approx 4.94$. Due to the mass ratio, almost 80\% 
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{Amplification factor $Q$}
+\section{Amplification factor $Q$}
 
 
 % -------------------------------------------------------
-\subsubsection{Definition of $Q$}
+\subsection{Definition of $Q$}
 Let's start from definition of the plasma amplification factor. The amplification factor is defined as the ratio of the fusion power $P_{fus}$ to the external heating power supplied $P_{ext}$\cite[p.12]{Wesson2004}, \cite[(3.4)]{FusionCEA1987}:
 
 \begin{equation}
@@ -201,7 +200,7 @@ Let's start from definition of the plasma amplification factor. The amplificatio
 Importantly, notice that $Q$ \emph{does not} encompass -- by far -- the entire question of the energetic efficiency of a fusion reactor. Indeed, in particular, it does neither account for the energy used for cryogenic purposes (as required by the use of superconductors) nor for the conversion factor of thermal to electric energy\sidenote{This point is often misleading for the public and it is important to be factually correct. Misleading statements concerning fusion and ITER power and energy since decades have been highlighted in \href{http://news.newenergytimes.net/2017/10/06/the-iter-power-amplification-myth/}{news.newenergytimes.net(1)}. This led directly ITER to update its public information web pages on the Q-factor (cf. \href{https://www.iter.org/newsline/-/2845}{ITER Newsline}).  Cf. also the follow-up \href{http://news.newenergytimes.net/2017/12/11/evidence-of-the-iter-power-deception/}{news.newenergytimes.net(2).}}.
 
 % ------------------------------------------
-\subsubsection{Power Balance: Sources terms}
+\subsection{Power Balance: Sources terms}
 At equilibrium, sources terms equal sink terms:
 \begin{equation}
 	\sum_{sources} P = \sum_{loss} P
@@ -251,7 +250,7 @@ Replacing $P_{fus}$ by its expression eq.\ref{eq:FusionPower1}, one finally obta
 Now that we have expressed the $P_{net}$ term for the source terms, one needs to express the loss terms.
 
 % --------------------------------------------------
-\subsubsection{Power Balance: Losses and Energy Confinement time $\tau_E$}
+\subsection{Power Balance: Losses and Energy Confinement time $\tau_E$}
 
 The losses origins being diverse, it is convenient to group all losses into one term $P_{loss}$\cite[p.9]{Wesson2004}:
 
@@ -278,7 +277,7 @@ which explains now why the radiative term has been put into the net power expres
 
 
 % --------------------------------------------------
-\subsubsection{Plasma Thermal Energy $W$}
+\subsection{Plasma Thermal Energy $W$}
 The total internal energy of the plasma reads as follows:
 \begin{equation*}
 W  = \int \frac{3}{2} k_B \left( n_e T_e + n_i T_i \right ) dV 
@@ -296,7 +295,7 @@ W = 3 n k_B T V = 3 k_B (2\pi^2) \varepsilon^2  n T R^3
 
 
 % --------------------------------------------------
-\subsubsection{Energy Confinement Time $\tau_E$ from Scaling Laws}
+\subsection{Energy Confinement Time $\tau_E$ from Scaling Laws}
 Experimental results have shown that the energy time in ELMy H-mode tokamak plasmas (referred to as the ITER IPB98(y,2) scaling law Eq.(20) of \sidecite{ITERphysics_chap2}) is well represented -- the root means square error is about 15.6\% -- by the following scaling law:
 
 \begin{equation}
@@ -316,7 +315,7 @@ Here, $\hat I_p$ and $B$ are the plasma current and the toroidal magnetic field 
 
 
 % --------------------------------------------------
-\subsubsection{Plasma Current $I_p$}
+\subsection{Plasma Current $I_p$}
 
 Integrating the Maxwell-Ampère equation over the whole plasma cross-section, and using Stokes' theorem, one gets:
 
@@ -351,7 +350,7 @@ where $\hat I_p$ is the current expressed in MA, and $C_I = 2\pi\, 10^{-6} /\mu_
 Notice that $B_t$ has been safely replaced by $B$ since $B_p\ll B_t$ in tokamak plasmas. 
 
 % --------------------------------------------------
-\subsubsection{Relationship 2: Power Balance, the link between $Q$ and $\tau_e$}
+\subsection{Relationship 2: Power Balance, the link between $Q$ and $\tau_e$}
 At equilibrium\marginnote[*-1]{Should the plasma not be at equilibrium and/or be subject to significant radiative losses in the confined region, then $P_{net}$ should be replaced by $(P_{net}-dW/dt-P_{rad})$. The subtraction of $P_{rad}$ ensures the balance equation to be consistent with the retained definition of $\tau_E$.}, i.e. from (eq.\ref{eq:power_balance_general}), one has:
 \begin{equation}
 	P_{net} = P_{loss}
@@ -378,10 +377,11 @@ However, some unknowns still remain, for instance in the expression of the fusio
 % --------------------------------------------------
 % --------------------------------------------------
 \newpage
-\section{Physical Constraints}\margintoc
+\chapter{Physical Constraints}\margintoc
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{Reactivity and Temperature range}
+\section{Reactivity and Temperature range}
+\subsection{Lawson Criteria}
 Without expanding the confinement time, equilibrium relationship (\ref{eq:power_balance_general}) can be written neglecting radiation using the net power (\ref{eq:Pnet_QnTR_adv}) and plasma energy (\ref{eq:total_energy_natural_units}) expressions, as:
 $$
 n \tau_E 
@@ -390,7 +390,7 @@ C_{lawson}
 \frac{Q}{1+Q/\lambda}
 \frac{\hat T }{\left< \sigma v \right>_{DT} }
 $$ 
-with $C_{lawson} = 12\times10^3 e / (\gamma_{rad} E_{DT})\approx 6.818\times10^{-4}/\gamma_{rad}$ (width $E_DT$ in Joules). The latter expression is a form of the Lawson criteria, stating that the heating power should be higher than the thermal losses, ie.:
+with $C_{lawson} = 12\times10^3 e / (\gamma_{rad} E_{DT})\approx 6.818\times10^{-4}/\gamma_{rad}$ (width $E_{DT}$ in Joules). The latter expression is a form of the Lawson criteria, stating that the heating power should be higher than the thermal losses, ie.:
 \begin{equation}
 	n \tau_E 
 	\geqslant
@@ -424,10 +424,11 @@ It turns out that the product $\hat n \tau_E$ is minimum for a temperature $\hat
     n \tau_E > 15 \times 10^{19} \si{\left[m^{-3} s \right]} 
 \end{equation*}
 
-In addition, another important point is the thermal stability of the regime: the total power absorbed by the system should be a decreasing function of temperature (otherwise it would lead to a temperature divergence). With this additional constraint, it appears that the minimum stable value is reached at $T\approx 15 \si{keV}$ (cf.\ref{sec:thermal_stability}).
+In addition, another important point is the thermal stability of the regime: the total power absorbed by the system should be a decreasing function of temperature (otherwise it would lead to a temperature divergence)\sidecite{FusionCEA1987}. With this additional constraint, it appears that the minimum stable value is reached at $T\approx 15 \si{keV}$ (cf.\ref{sec:thermal_stability}).
 
 
-Finally, in the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
+\subsection{Approximation of the reactivity}
+In the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out that the reactivity $\left< \sigma v \right>_{DT}$ can well (with about 10$\%$ error) be approximated by \cite[(1.5.4)]{Wesson2004}: 
 
 \begin{equation}
 \left< \sigma v \right>_{DT} 
@@ -440,7 +441,7 @@ so that the criterion for ignition becomes (assuming a flat profiles):
 \end{equation*}
 
 
-\subsubsection{Fusion Power as a function of Temperature or Beta}
+\subsection{Fusion Power as a function of Temperature or Beta}
 All in all, one gets (in MW):
 \begin{equation}
 \hat P_{fus} = C_{fus} \kappa \varepsilon^2 R^3 \hat n^2 \hat T^2  
@@ -460,7 +461,7 @@ The fusion power can also be expressed in terms of $\beta_N$by using eq.\ref{eqn
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{Plasma Radiation}\label{sec:plasma_radiation}
+\section{Plasma Radiation}\label{sec:plasma_radiation}
 In a fusion plasma, the three most important types of radiation are: 
 \begin{itemize}
 	\item Bremsstrahlung radiation, due to Coulomb collisions 
@@ -474,7 +475,7 @@ Bremsstrahlung radiation is an important radiation loss in fusion plasma and usu
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsubsection{Bremsstrahlung Radiation}
+\subsection{Bremsstrahlung Radiation}
 Bremsstrahlung radiation, i.e., "braking radiation" or "deceleration radiation", is the electromagnetic radiation produced by the Coulomb interactions between electrons and ions. As in fusion plasma, multiple ions species are present, the power loss density can be expressed as \cite[sec.3.3]{FusionCEA1987}, \cite[sec.4.24]{Wesson2004}, \cite[sec.3.5.4]{Freidberg2007}
 
 \begin{equation}
@@ -518,20 +519,20 @@ which leads to the inequality illustrated in figure \ref{fig:ntau_E_vs_T_adv}:
 \end{equation}
 
 % ---------------------------------------------------------------------------
-\subsubsection{Line Radiation}
+\subsection{Line Radiation}
 line-radiation would better account for the effects of heavy impurities that are emitted from the divertor plate and first wall.
 
 TODO
 
 % ---------------------------------------------------------------------------
-\subsubsection{Synchrotron Radiation}
+\subsection{Synchrotron Radiation}
 
 TODO
 
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{MHD Instabilities}
+\section{MHD Instabilities}
 The plasma beta $\beta$ is defined as the ratio of the plasma pressure $p=2nk_BT$ (the factor 2 comes from the fact that the total temperature is considered, $i.e.$ $n(T_e+T_i)$, with the assumption of equal ion and electron temperatures) to the magnetic pressure $B^2/2\mu_0$:
 \begin{equation}
 	\beta
@@ -565,17 +566,18 @@ Then, the stability limit simply reads $\beta_N <g$.
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{Density Limit - plasma pressure}
-The expression of $\beta$ ()\ref{eqn:beta_adv}) can also be used to set a maximum boundary of the plasma density. Indeed, in order to get a magnetically confined plasma, one must insure that $\beta < 1$. This leads to the inequality:
+\section{Density Limits}
+\subsection{Plasma Pressure}
+The expression of $\beta$ (\ref{eqn:beta_adv}) can also be used to set a maximum boundary of the plasma density. Indeed, in order to get a magnetically confined plasma, one must insure that $\beta < 1$. This leads to the inequality:
 \begin{equation}
     \hat n < \frac{B^2}{C_\beta \hat T}
 \end{equation}
 
-For $T=15 \si{keV}$, this leads to the following  
+%For $T=15 \si{keV}$, this leads to the following  
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{Density Limit - Greenwald density}
+\subsection{Greenwald density}
 
 As stated in a recent topical review on the subject \sidecite{Greenwald2002}, \emph{``in addition to the operational limits imposed by MHD stability on plasma current and pressure, an independent limit on plasma density is observed in confined toroidal plasmas. [...] In tokamaks, [...] there is strong evidence linking the limit to physics near the plasma boundary [...]''}. As a matter of fact, the so-called Greenwald density $n_G$ is not a sharp density limit, since discharges with peaked density profiles can well operate above this value. So far, there is no widely accepted, first principles model for the density limit. Yet, the focus is currently either on mechanisms which lead to strong edge cooling, or on collisionality enhanced turbulent transport.
 
@@ -598,16 +600,16 @@ Finally, one introduces the normalised density $n_N\doteq n/ n_G$, so that:
 
 % --------------------------------------------------
 % --------------------------------------------------
-\subsection{Scaling law exponents}
+\section{Scaling law exponents}
 It is important to realize that the exponents of the power law are actually bound by critical relations, which derive from the invariance properties of the underlying governing equations, namely Vlasov and Maxwell's equations. These relations are sometimes called the "Kadomtsev constraints", acknowledging his decisive contribution \sidecite{Kadomtsev1975} to import in the field of fusion science the pioneering works of Buckingham on scale invariance \sidecite{Buckingham1914}\footnote{On the question of dimensional analysis applied to physics in general, see also reference \cite{Misic2010}, and references \cite{Connor1977, Luce2008} for the specific case of fusion plasmas.}. For instance, as recalled in \cite{ITERphysics_chap2} (p.2204), a standard constraint imposes the relation 
 $4\alpha_R - 8\alpha_n - \alpha_I - 3\alpha_P - 5\alpha_B = 5$, with $\alpha_X$ the exponent of variable $X$ in the scaling law. The rationale is briefly recalled in Appendix~\ref{appendix:scaling_law_dimensionless}.
 
 % --------------------------------------------------
 % --------------------------------------------------
 % --------------------------------------------------
-\section{Expression Reformulations}\margintoc
+\chapter{Expression Reformulations}\margintoc
 % ------------------------------------------------------
-\subsection{Plasma Pressure}
+\section{Plasma Pressure}
 Using the expression Eq.(\ref{eq:}) and that of the plasma current Eq.(\ref{eq:plasma_current_adv}), the plasma pressure can be expressed as a function of $\beta_N$ and $B$ from Eq.(\ref{eqn:beta_adv}):
 \begin{eqnarray}
 \hat n\hat T &=& C_\beta^{-1} \beta_N \frac{\hat I_p B}{\varepsilon R} \nonumber \\
@@ -616,7 +618,7 @@ Using the expression Eq.(\ref{eq:}) and that of the plasma current Eq.(\ref{eq:p
 \end{eqnarray}
 
 % ------------------------------------------------------
-\subsection{Plasma Energy}
+\section{Plasma Energy}
 The plasma energy (\ref{eq:total_energy_natural_units}) is re-expressed in terms of normalized units: (in [MW.s]):
 
 \begin{equation}
@@ -628,7 +630,7 @@ where $C_{loss} = 3 \times 10^{19} \times 10^{-3} e$.
 
 
 % ---------------------------------------------------
-\subsection{Fusion Power}
+\section{Fusion Power}
 Using the expression of the reactivity for the considered range of temperature, fusion power (\ref{eq:FusionPower1}) gets (in MW):
 \begin{equation}
 \hat P_{fus} 
@@ -663,7 +665,7 @@ Moreover, the fusion power (\ref{eq:DT_fusion_power_adv}) can be expressed in te
 \label{eq:DT_fusion_power_betaN_adv}
 \end{equation}
 
-\subsection{Loss Power}
+\section{Loss Power}
 The power loss can be written in terms of normalized parameters as:
 \begin{equation}
 	\hat P_{loss} \doteq \frac{\hat W}{\tau_E} 
@@ -681,7 +683,7 @@ Similarly to what we did for the D-T fusion power, $P_{loss}$ can also be expres
 \end{equation}
 
 %------------------------------------------------------
-\subsection{Triple Product}
+\section{Triple Product}
 At equilibrium, using both expressions of the powers, more precisely eq.(\ref{eq:Pnet_as_Pfus_Q}), (\ref{eq:DT_fusion_power_adv}) and eq.(\ref{eq:Ploss_adv}), one then obtains an expression for the so-called triple product $nT\tau_E$:
 \begin{equation}
 	\hat n \hat T \tau_E = \frac{C_{loss}}{\gamma_{rad} C_{fus}} \frac{Q}{1+Q/\lambda}
@@ -690,7 +692,7 @@ At equilibrium, using both expressions of the powers, more precisely eq.(\ref{eq
 
 
 % -----------------------------------------------------
-\subsection{Confinement Time}
+\section{Confinement Time}
 Introducing the normalised density $n_N = \hat n/\hat n_G$ (eq.\ref{eq:n_nN_adv}) and replacing the current by its expression eq.\ref{eq:plasma_current_adv}, the scaling law can be recast as follows:
 \begin{equation*}
 \tau_E = C_{SL} C_n^{0.41} C_I^{1.34} \hat M^{0.19} \kappa^{0.78} \varepsilon^{2.44} q_a^{-1.34}
@@ -720,7 +722,8 @@ Equation (\ref{eq:DT_fusion_power_betaN_adv}) is the other independent relation 
 % --------------------------------------------------
 % --------------------------------------------------
 % --------------------------------------------------
-\section{Searching for a solution}
+\chapter{Searching for a Solution}\margintoc
+\section{$(R,B)$ for a given $\beta$}
 The equation (\ref{eq:DT_fusion_power_betaN_adv}) can be restated as:
 
 \begin{equation}
@@ -756,7 +759,7 @@ These two solutions should be solved together for a prescribed value of $\beta_N
 % --------------------------------------------------
 % --------------------------------------------------
 % --------------------------------------------------
-\section{Additional discussions}\margintoc
+\section{Additional discussions}
 The model which has been derived can be made more realistic, taking into account the following additional parameters, described in the next subsections.
 
 
