@@ -3,13 +3,20 @@ on: [push]
 jobs:
   latex-job:
     runs-on: ubuntu-latest
-    name: Compile Latex file
-    steps:
-    - uses: actions/checkout@v1
-    - name: Compilation
-      uses: vinay0410/tectonic-action@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tex_path: 'main.tex'
-        push: 'yes'
+    name: LaTeX Action
+    # You may pin to the exact commit or the version.
+    # uses: fudan-mse/latex-action@eb2eb7ba472011213ac0a6286fd776494623362c
+    uses: fudan-mse/latex-action@v0.0.1
+    with:
+      # The root LaTeX file to be compiled
+      root_file: 'main.tex'
+      # The working directory for the LaTeX engine
+      working_directory: # optional
+      # The LaTeX engine to be invoked
+      compiler: # optional, default is latexmk
+      # Extra arguments to be passed to the LaTeX engine
+      args: # optional, default is -pdf -file-line-error -interaction=nonstopmode
+      # Install extra packages by tlmgr
+      extra_packages: # optional
+      # Install extra packages by apk
+      extra_system_packages: # optional
