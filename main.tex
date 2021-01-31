@@ -16,8 +16,7 @@ twoside=false, % If true, use different layouts for even and odd pages (in parti
 \addbibresource{references.bib} % Bibliography file
 
 %%%%%% Math packages
-%\usepackage{siunitx}
-\newcommand{\si}{~}  % TODO: siunitx fails 
+\usepackage{siunitx}
 
 %%%%%% definitions of mathematical variables
 \newcommand{\bbf}{{\mathbf b}}
@@ -54,7 +53,7 @@ twoside=false, % If true, use different layouts for even and odd pages (in parti
 \subtitle{Lecture, Master on Fusion Science}
 
 \author{J. Hillairet, Y. Sarazin, J.-L. Duchateau et al.}
-\date{\today}
+\date{Last Update: \today}
 
 %\frontmatter % Denotes the start of the pre-document content, uses roman numerals
 
@@ -68,10 +67,7 @@ twoside=false, % If true, use different layouts for even and odd pages (in parti
 \mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
 \setchapterstyle{kao} % Choose the default chapter heading style, for kaobook only
 
-\newpage
 \input{sec_advisors.tex}
-
-\input{sec_tokamak_dimensioning.tex}
 
 \printbibliography[title=Bibliography]% , prenote=bibnote]
 
