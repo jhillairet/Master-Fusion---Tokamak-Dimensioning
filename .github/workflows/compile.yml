@@ -1,22 +1,13 @@
+name: Build LaTeX document
 on: [push]
-
 jobs:
-  latex-job:
+  build_latex:
     runs-on: ubuntu-latest
-    name: Compile Latex file
     steps:
-    - name: LaTeX compilation
-      # You may pin to the exact commit or the version.
-      # uses: dante-ev/latex-action@259e5ff953ad4d4616fbd09cc87a526ee5c4499a
-      uses: dante-ev/latex-action@v0.2.0
-      with:
-        # The root LaTeX file to be compiled
-        root_file: 'main.tex'
-        # The working directory for the latex compiler to be invoked
-        working_directory: # optional
-        # LaTeX engine to be used
-        compiler: # optional, default is latexmk
-        # Extra arguments to be passed to the latex compiler
-        args: # optional, default is -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-        # Install extra packages by apt-get
-        extra_system_packages: # optional
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: main.tex
+
