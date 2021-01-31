@@ -3,7 +3,10 @@ on: [push]
 jobs:
   latex-job:
     runs-on: ubuntu-latest
-    name: LaTeX Action
+    name: Compile Latex file
+    steps:
+    - uses: actions/checkout@v1
+    - name: LaTeX Action
     # You may pin to the exact commit or the version.
     # uses: fudan-mse/latex-action@eb2eb7ba472011213ac0a6286fd776494623362c
     uses: fudan-mse/latex-action@v0.0.1
