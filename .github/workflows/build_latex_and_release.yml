@@ -1,9 +1,6 @@
 name: Build LaTeX document and release PDF
 
-on:
-  push:
-    tags:
-      - '*.*.*'
+on: [push, release]
   
 jobs:
   build_latex:
