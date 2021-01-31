@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % kaobook
 % LaTeX Class
-% Version 1.0 (5/6/19)
+% Version 0.9.5 (2020/12/30)
 %
 % This template originates from:
 % https://www.LaTeXTemplates.com
@@ -25,14 +25,22 @@
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{kaohandt}[2019/06/05 v1.0 kaohandt class v1.0]
+\ProvidesClass{kaohandt}[2020/12/30 v0.9.5 kaohandt]
 
-\newcommand{\@classname}{kaobook} % Class name
+\RequirePackage{xkeyval} % Manage class key-value options
+
+\newcommand{\@classname}{kaohandt} % Class name
 \newcommand{\@baseclass}{scrartcl} % Base class name
 
+\newcommand{\@secnumdepth}{2} % Set default numbering depth up to subsections
+\DeclareOptionX{secnumdepth}{% % Declare secnumdepth as an option
+	\renewcommand{\@secnumdepth}{#1}%
+}
+
 % Set the default options
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{\@baseclass}} % Pass through any options to the base class
-\ProcessOptions\relax % Process the options
+\PassOptionsToClass{a4paper}{\@baseclass}
+\DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{\@baseclass}} % Pass through any options to the base class
+\ProcessOptionsX\relax % Process the options
 \LoadClass{\@baseclass} % Load the base class
 \input{styles/kao.sty} % Load the code common to all classes
 
@@ -47,7 +55,7 @@
 % Customise the abstract
 \RequirePackage[style]{abstract}
 
-\setlength{\absleftindent}{0pt} % No indent
+\setlength{\absleftindent}{0pt}% No indent
 \if@abstrt
   \renewcommand{\abstitlestyle}[1]{%
 	\vspace{-0.6cm}%
@@ -78,7 +86,7 @@
 %	NUMBERING
 %----------------------------------------------------------------------------------------
 
-\setcounter{secnumdepth}{2} % Number up to subsections
+\setcounter{secnumdepth}{\@secnumdepth} % Set section numbering depth
 
 \counterwithin*{sidenote}{section} % Uncomment to reset the sidenote counter at each section
 %\counterwithout{sidenote}{section} % Uncomment to have one sidenote counter for the whole document
