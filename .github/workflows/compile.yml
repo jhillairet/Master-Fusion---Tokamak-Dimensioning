@@ -1,0 +1,9 @@
+- name: Compile LateX
+  # You may pin to the exact commit or the version.
+  # uses: vinay0410/tectonic-action@b3138021657a3cdb3823f3980be054ca89e86d81
+  uses: vinay0410/tectonic-action@v1.1.2
+  with:
+    # Path of Tex File
+    tex_path: main.tex
+    # String stating whether to push output PDF, PDF will only be pushed in case of "yes"
+    push: yes
