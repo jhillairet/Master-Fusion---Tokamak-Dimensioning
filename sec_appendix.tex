@@ -214,3 +214,55 @@ When applied to the scaling exponents of the ITER IPB98(y,2) scaling law eq.\ref
 \kappa^{0.29} \;
 \end{equation}
 This expression is consistent with eq.(21) of ref.\cite{ITERphysics_chap2}\sidenote{Actually, eq.(21) of ref.\cite{ITERphysics_chap2} exhibits a slightly different form, since $\tau_E$ is expressed as function of the Bohm time $\tau_B \propto \varepsilon^2R^2B\hat T_i^{-1}$. Notice that $\omega_c\tau_B \propto \rho_*^{-2}$. Also, the scaling exponent of $\kappa$ is wrong (cf. $e.g.$ [D. McDonald, Nuclear Fusion 47 (2007) 147], p.167, eq.(8)): it should read $\alpha_\kappa = 3.3$. Then, replacing $C_I$ by $\kappa C_I$ in our calculations, as suggested by eq.(17) of ref.\cite{ITERphysics_chap2}, one then finds that the $\kappa$ exponent in eq.\ref{eq:tauE_SL_generic_dimensionless} should read $\gamma(\alpha_\kappa+\alpha_P+\alpha_I)$ (instead of $\gamma(\alpha_\kappa+\alpha_P)$). As expected, it is then equal to 3.29 in this case.}. In particular, notice the strong dependency of the energy confinement time with respect to $\rho_*$. This power coefficient, close to 3, is reminiscent of the so-called \emph{gyro-Bohm} transport, where the effective turbulent diffusivity scales like $\chi_\perp \sim \rho_* \chi_{B}$, with $\chi_B = T/eB$ the Bohm diffusion coefficient. This unfavorable scaling explains why large performance gains can only be achieved in large machines, like ITER.
+
+%=============================================================================
+\chapter{Temperature profile and peaking factor}
+\label{appendix:peaking_factor}
+%=============================================================================
+Assuming the following radial profile for the temperature
+
+\begin{equation}
+    T(\rho) = T_a + (T_0 - T_a)(1 - \rho^2)^\nu
+\end{equation}
+
+where $T_a$ and $T_0$ are the temperature at the separatrix $(\rho=1)$ and on magnetic axis $(\rho=0)$ respectively and $\nu$ a parameter greater than zero.
+
+The volume average then reads:
+
+\begin{equation}
+    \left < T \right > = \frac{1}{\pi a^2} \int_0^a 2\pi r \, dr = \frac{T_0 + \nu T_a}{\nu + 1} 
+\end{equation}
+
+while the volume average of the squared temperature reads:
+
+\begin{equation}
+    \left < T^2 \right > 
+    = 
+    \frac{1}{(\nu+1)(2\nu+1)} 
+    \left( 
+        2(\nu T_a)^2 + 2\nu T_a T_0 + (\nu + 1) \T_0^2
+    \right)
+\end{equation}
+
+The peaking factor is then:
+
+\begin{equation}
+    f_p
+    =
+    \frac{\left < T^2 \right >}{\left < T \right >^2}
+    =
+    \frac{2(\nu T_a)^2 + 2\nu T_a T_0 + (\nu + 1) \T_0^2}{(T_0 + T_a)^2}
+    \frac{\nu + 1}{2\nu + 1}
+\end{equation}
+
+also
+
+\begin{equation}
+    \frac{T_{\mathrm{max}}}{\left < T \right >}
+    =
+    \frac{1 + \nu}{1 + \nu T_a/T_0}
+\end{equation}
+
+Numerical application:
+
+$\nu=1.18 \longrightarrow f_p = 1.40$, $\nu=1.4 \longrightarrow f_p = 1.50$, $\nu=2.0 \longrightarrow f_p = 1.77$, 
