@@ -1,6 +1,6 @@
 \documentclass[
 fontsize=10pt, % Base font size
-twoside=false, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+twoside=true, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
 %abstract=true, % Uncomment to print the title of the abstract
 %numbers=noenddot, % Comment to output dots after section numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
 %draft=true, % If uncommented, rulers will be added in the header and footer
@@ -8,12 +8,14 @@ twoside=false, % If true, use different layouts for even and odd pages (in parti
 ]{kaobook}
 
 % Choose the language
-\usepackage[english]{babel} % Load characters and hyphenation
-\usepackage[english=british]{csquotes}	% English quotes
+%\usepackage[english]{babel} % Load characters and hyphenation
+%\usepackage[english=british]{csquotes}	% English quotes
 
 % Load the bibliography package
-\usepackage{styles/kaobiblio}
+\usepackage{kaobiblio}
 \addbibresource{references.bib} % Bibliography file
+
+\usepackage{kaorefs}
 
 %%%%%% Math packages
 \usepackage{siunitx}
@@ -52,7 +54,7 @@ twoside=false, % If true, use different layouts for even and odd pages (in parti
 \title{Tokamak Dimensioning}
 \subtitle{Lecture, Master on Fusion Science}
 
-\author{J. Hillairet, Y. Sarazin, J.-L. Duchateau et al.}
+\author{J. Hillairet, Y. Sarazin, J.-L. Duchateau, C.Reux et al.}
 \date{Last Update: \today}
 
 %\frontmatter % Denotes the start of the pre-document content, uses roman numerals
@@ -64,17 +66,6 @@ twoside=false, % If true, use different layouts for even and odd pages (in parti
 \setcounter{tocdepth}{4}
 \tableofcontents
 
-%\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
-\setchapterstyle{kao} % Choose the default chapter heading style, for kaobook only
 
-\input{sec_advisors.tex}
-
-\printbibliography[title=Bibliography]% , prenote=bibnote]
-
-\input{sec_acknowledgments.tex}
-
-\newpage
-
-\input{sec_appendix.tex}
 
 \end{document}
