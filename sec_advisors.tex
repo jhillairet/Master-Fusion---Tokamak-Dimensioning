@@ -427,7 +427,7 @@ The value of $n \tau_E$ in (\ref{eq:Lawson_criterium_temperature_adv}) are illus
 
 It turns out that the product $\hat n \tau_E$ is minimum for a temperature $\hat T\approx 26.8$~keV, whatever the value of $Q$. Hence the optimal target temperature to consider for D-T reactions is around 26 \si{keV}. In particular, for ignition, one must have:
 \begin{equation*}
-    n \tau_E > 15 \times 10^{19} \si{\left[m^{-3} s \right]} 
+    n \tau_E > 15 \times 10^{19} \left[ \si{m^{-3} s }\right] 
 \end{equation*}
 
 In addition, another important point is the thermal stability of the regime: the total power absorbed by the system should be a decreasing function of temperature (otherwise it would lead to a temperature divergence)\sidecite{FusionCEA1987}. With this additional constraint, it appears that the minimum stable value is reached at $T\approx 15~\si{keV}$ (cf.\ref{sec:thermal_stability}).
@@ -439,11 +439,11 @@ In the temperature range $T_{\mathrm{[keV]}} \in [10.3-18.5]$ keV, it turns out 
 \begin{equation}
 \left< \sigma v \right>_{DT} 
 \approx 
-1.18 \times 10^{-24}\; \hat T^2 \;\si{\left[m^3 s^{-1}\right]}
+1.18 \times 10^{-24}\; \hat T^2 \;\left[\si{m^3 s^{-1}}\right]
 \end{equation}
 so that the criterion for ignition becomes (assuming a flat profiles): 
 \begin{equation*}
-    n T \tau_E > 3 \times 10^{21} \si{\left[m^{-3} keV s \right]}
+    n T \tau_E > 3 \times 10^{21} \left[\si{m^{-3} keV s }\right]
 \end{equation*}
 
 
@@ -456,7 +456,7 @@ All in all, one gets (in MW):
 with $C_{fus} \approx 17.59 \times e\times 1.18\, 10^{-24} \times 10^{2\times19}\times \pi^2/2 \approx 1.64\, 10^{-3}$. We recall here that $\hat T$ is expressed in keV, and $\hat n$ in $10^{19} \, \si{m^{-3}}$. 
 
 
-The fusion power can also be expressed in terms of $\beta_N$by using eq.\ref{eqn:nT_betaN}:
+The fusion power can also be expressed in terms of $\beta_N$by using eq.\ref{eqn:nT_betaN_adv}:
 \begin{equation}
 \hat P_{fus} = \frac{C_{fus}C_I^2}{C_\beta^2} \frac{\kappa \varepsilon^4}{q_a^2} 
 \beta_N^2 R^3 B^4 
@@ -567,6 +567,7 @@ The coefficient of proportionality $g$ depends on the considered instabilities. 
 It is usual to introduce the normalised $\beta$, called $\beta_N$, defined by Eq.(13.146) from \sidecite{Freidberg2007}:
 \begin{equation}
 \beta \doteq \beta_N \frac{\hat I_p}{a B}
+\label{eq:betaN_def}
 \end{equation}
 Then, the stability limit simply reads $\beta_N <g$.
 
@@ -616,7 +617,7 @@ $4\alpha_R - 8\alpha_n - \alpha_I - 3\alpha_P - 5\alpha_B = 5$, with $\alpha_X$ 
 \chapter{Expression Reformulations}\margintoc
 % ------------------------------------------------------
 \section{Plasma Pressure}
-Using the expression Eq.(\ref{eq:}) and that of the plasma current Eq.(\ref{eq:plasma_current_adv}), the plasma pressure can be expressed as a function of $\beta_N$ and $B$ from Eq.(\ref{eqn:beta_adv}):
+Using the expression Eq.(\ref{eq:betaN_def}) and that of the plasma current Eq.(\ref{eq:plasma_current_adv}), the plasma pressure can be expressed as a function of $\beta_N$ and $B$ from Eq.(\ref{eqn:beta_adv}):
 \begin{eqnarray}
 \hat n\hat T &=& C_{\beta_\%}^{-1} \beta_N \frac{\hat I_p B}{\varepsilon R} \nonumber \\
 &=& \frac{C_I}{C_{\beta_\%}}\; \frac{\varepsilon}{q_a} \;  \beta_N B^2
@@ -864,7 +865,7 @@ Finally, geometrical effects modify the $C_I$ coefficient. When including the ef
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{figures/Fig_3D_betaN_R_B_ITER_v3.png}
-	\caption{Surfaces governed by eq.\ref{eq:DT_fusion_power_betaN} and eq.\ref{eq:nTtau_betaN} in the 3-dimensional $(\beta_N,R,B)$ space. Black dashed line: intersection of these 2 surfaces.}
+	\caption{Surfaces governed by eq.\ref{eq:DT_fusion_power_betaN} and eq.\ref{eq:nTtau_betaN_adv} in the 3-dimensional $(\beta_N,R,B)$ space. Black dashed line: intersection of these 2 surfaces.}
 	\label{fig:R_B_betaN_3D}
 \end{figure}
 
@@ -872,7 +873,7 @@ Finally, geometrical effects modify the $C_I$ coefficient. When including the ef
 	\centering
 	\includegraphics[width=1\textwidth]{figures/Fig_2D_betaN_R_B_ITER_v3.png}%\hfill
 	%\includegraphics[width=0.5\textwidth]{figures/Fig_3D_betaN_R_B_ITER.png}
-	\caption{Map of $\beta_N=f(R,B)$ given by eq.\ref{eq:DT_fusion_power_betaN} (color-scale and plain contour lines) and eq.\ref{eq:nTtau_betaN} (dashed contour lines). Blue line: intersection of these 2 surfaces. Red line: $\beta_N = 1.7$.}
+	\caption{Map of $\beta_N=f(R,B)$ given by eq.\ref{eq:DT_fusion_power_betaN} (color-scale and plain contour lines) and eq.\ref{eq:nTtau_betaN_adv} (dashed contour lines). Blue line: intersection of these 2 surfaces. Red line: $\beta_N = 1.7$.}
 \end{figure}
 
 \begin{figure}[h]
@@ -907,14 +908,14 @@ The approximate values of the various coefficients are then the following:
 \begin{figure} 
 	\centering
 	\includegraphics[width=.8\textwidth]{figures/Fig_R_B_betaN_solutions_v3.png}
-	\caption{Values of $R$ and $B$ as a function of $\beta_N$ which fulfill both equations eq.\ref{eq:DT_fusion_power_betaN} and eq.\ref{eq:nTtau_betaN} (taken along the blue line of fig.\ref{fig:R_B_betaN_2D}). The solution at $\beta_N \approx 1.7$ is close to the ITER specifications $R_{ITER}=6.2$m, $B_{ITER}=5.3$T.}
+	\caption{Values of $R$ and $B$ as a function of $\beta_N$ which fulfil both equations eq.\ref{eq:DT_fusion_power_betaN} and eq.\ref{eq:nTtau_betaN_adv} (taken along the blue line of fig.\ref{fig:R_B_betaN_2D}). The solution at $\beta_N \approx 1.7$ is close to the ITER specifications $R_{ITER}=6.2$m, $B_{ITER}=5.3$T.}
 	\label{fig:solutions_betaN}
 \end{figure}
 
 
 
-Two independent expressions of $\beta_N$ with respect to $R$ and $B$ are provided by equations eq.\ref{eq:DT_fusion_power_betaN} and eq.\ref{eq:nTtau_betaN}. The intersection of these 2 surfaces draws a line in the $(R,B,\beta_N)$ plane, as evident on Fig.\ref{fig:R_B_betaN_3D}. This line is plotted in blue on figures \ref{fig:R_B_betaN_3D} and \ref{fig:R_B_betaN_2D} (the latter figure being a projection of the former one). As expected, it does not follow an iso-$\beta_N$ contour (should it be the case, this would actually mean that the 2 equations are degenerate). Figure \ref{fig:R_B_betaN_2D} also shows the iso-contour lines $\beta_N \in \{1.5, 2\}$, which allow one to locate the ITER relevant region in the $(R,B)$ plane, i.e. those solutions exhibiting an acceptable $\beta_N$ value for ITER performing discharges. 
-It readily appears from Fig.\ref{fig:R_B_betaN_3D} that $\beta_N$ given by eq.\ref{eq:DT_fusion_power_betaN} decreases with $(R,B)$, while eq.\ref{eq:nTtau_betaN} leads to the increase of $\beta_N$ with $(R,B)$, all other parameters being kept constant.
+Two independent expressions of $\beta_N$ with respect to $R$ and $B$ are provided by equations eq.\ref{eq:DT_fusion_power_betaN} and eq.\ref{eq:nTtau_betaN_adv}. The intersection of these 2 surfaces draws a line in the $(R,B,\beta_N)$ plane, as evident on Fig.\ref{fig:R_B_betaN_3D}. This line is plotted in blue on figures \ref{fig:R_B_betaN_3D} and \ref{fig:R_B_betaN_2D} (the latter figure being a projection of the former one). As expected, it does not follow an iso-$\beta_N$ contour (should it be the case, this would actually mean that the 2 equations are degenerate). Figure \ref{fig:R_B_betaN_2D} also shows the iso-contour lines $\beta_N \in \{1.5, 2\}$, which allow one to locate the ITER relevant region in the $(R,B)$ plane, i.e. those solutions exhibiting an acceptable $\beta_N$ value for ITER performing discharges. 
+It readily appears from Fig.\ref{fig:R_B_betaN_3D} that $\beta_N$ given by eq.\ref{eq:DT_fusion_power_betaN} decreases with $(R,B)$, while eq.\ref{eq:nTtau_betaN_adv} leads to the increase of $\beta_N$ with $(R,B)$, all other parameters being kept constant.
 Noticeably, plain and dashed iso-contours look almost tangent to each other. This property implies that the set of couples $(R,B)$ which are solutions of the problem does not cover a broad range of $\beta_N$ values. This point is evident on fig.\ref{fig:solutions_betaN}, which displays the $(R,B)$ solutions as a function of $\beta_N$: for $\beta_N$ in the range $1.57 \leq \beta_N \leq 1.94$, the acceptable couples $(R,B)$ are in the range $2.85 \leq R_{[m]} \leq 9.82$ and $3.90 \leq B_{[T]} \leq 8.88$.
 
 Interestingly, it turns out that the triplet $(R_{[m]},B_{[T]},\beta_N) = (6.2, 5.3, 1.7)$ is a possible solution of the problem\marginnote{More precisely, the couple $(R_{[m]},B_{[T]}) \approx (6.200, 5.298)$ is solution at $\beta_N \approx 1.698$.}. This set of parameters is consistent with ITER specifications. \\
