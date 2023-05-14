@@ -413,7 +413,7 @@
 \extrafloats{100} % Require more floats
 
 \RequirePackage{marginnote} % Provides options for margin notes
-%\RequirePackage{marginfix} % Make marginpars float freely; it should not be loaded as it prevents the marginnotes to stay aligned with the main text
+\RequirePackage{marginfix} % Make marginpars float freely; it should not be loaded as it prevents the marginnotes to stay aligned with the main text
 \RequirePackage{sidenotes} % Use sidenotes
 \RequirePackage{chngcntr} % Reset counters at sections
 
@@ -564,9 +564,9 @@
 \setlength\columnseprule{.4pt} % Set the width of vertical rules in tables
 
 % The marginfix package prevents the margin notes to stay aligned with the main text, so it cannot be used. However, we define the \marginskip command, which is the only command we need from that package.
-\newcommand\marginskip[1]{%
-	\marginpar{\@margin@par\vspace{#1 - \baselineskip}}% We subtract the \baselineskip that we have in margin pars.
-}
+%\newcommand\marginskip[1]{%
+%	\marginpar{\@margin@par\vspace{#1 - \baselineskip}}% We subtract the \baselineskip that we have in margin pars.
+%}
 
 \newlength{\kaomarginskipabove} % Specify the space above a marginfigure, margintable or marginlisting
 \newlength{\kaomarginskipbelow} % Specify the space below a marginfigure, margintable or marginlisting

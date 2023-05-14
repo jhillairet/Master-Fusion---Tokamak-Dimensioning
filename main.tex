@@ -1,4 +1,5 @@
 \documentclass[
+	a4paper, % Page size
 	fontsize=10pt, % Base font size
 	twoside=true, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
 	%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
@@ -8,7 +9,13 @@
 % NB JH 02/2022 : TexLive 2021 is necessary to compile correctly
 
 % Choose the language
-\usepackage[english]{babel} % Load characters and hyphenation
+% Choose the language
+\ifxetexorluatex
+	\usepackage{polyglossia}
+	\setmainlanguage{english}
+\else
+	\usepackage[english]{babel} % Load characters and hyphenation
+\fi
 \usepackage[english=british]{csquotes}	% English quotes
 
 % Load the bibliography package
@@ -25,10 +32,9 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=purple,
-    pdftitle={Overleaf Example},
+    pdftitle={Tokamak Dimensioning},
     pdfpagemode=FullScreen,
     }
-
 
 %%%%%% Math packages
 \usepackage{siunitx}
