@@ -1,7 +1,7 @@
 \ProvidesPackage{kao}
 
 %----------------------------------------------------------------------------------------
-%	KAO-SPECIFIC OPTIONS
+%	DECLARE KAO
 %----------------------------------------------------------------------------------------
 
 \DefineFamily{kao}% Define the family name
@@ -13,10 +13,11 @@
 %	USEFUL PACKAGES AND COMMANDS
 %----------------------------------------------------------------------------------------
 
+\RequirePackage{kvoptions} % Handle package options
 \RequirePackage{etoolbox} % Easy programming to modify TeX stuff
 \RequirePackage{calc} % Make calculations
 \RequirePackage[usenames,dvipsnames,table]{xcolor} % Colours
-\RequirePackage{iftex} % Check wether XeTeX is being used
+\RequirePackage{iftex} % Check whether XeTeX is being used
 \RequirePackage{xifthen} % Easy conditionals
 \RequirePackage{options} % Manage class options
 \RequirePackage{xparse} % Parse arguments for macros
@@ -33,6 +34,39 @@
 	\let\Ifthispageodd\ifthispageodd%
 }
 
+%----------------------------------------------------------------------------------------
+%	KAO-SPECIFIC OPTIONS
+%----------------------------------------------------------------------------------------
+
+% Set up the package options
+\SetupKeyvalOptions{
+	family = kao,
+	prefix = kao@
+}
+
+% https://tex.stackexchange.com/questions/47576/combining-ifxetex-and-ifluatex-with-the-logical-or-operation
+% Introduce a command to find out whether the compiler is XeTeX or LuaTeX
+\newif\ifxetexorluatex
+\ifxetex
+	\xetexorluatextrue
+\else
+	\ifluatex
+		\xetexorluatextrue
+	\else
+		\xetexorluatexfalse
+	\fi
+\fi
+
+\ifxetexorluatex
+	\newcommand{\kao@defaultfontmethod}{modern}
+\else
+	\newcommand{\kao@defaultfontmethod}{tex}
+\fi
+
+% Set default based on rendering engine
+\DeclareStringOption[\kao@defaultfontmethod]{fontmethod}
+
+\ProcessKeyvalOptions{kao}
 
 %----------------------------------------------------------------------------------------
 %	TITLE AND AUTHOR MACROS
@@ -130,6 +164,7 @@
 \@ifclasswith{\@baseclass}{illustratedpaper}{\setlength{\hscale}{0.905mm}\setlength{\vscale}{0.909mm}}{}
 \@ifclasswith{\@baseclass}{f24paper}{\setlength{\hscale}{0.762mm}\setlength{\vscale}{0.808mm}}{}
 \@ifclasswith{\@baseclass}{a4paperlandscape}{\setlength{\hscale}{1.414mm}\setlength{\vscale}{0.707mm}}{}
+\@ifclasswith{\@baseclass}{169paperlandscape}{\setlength{\hscale}{1.414mm}\setlength{\vscale}{0.562mm}}{}
 
 % Set the default page layout
 \RequirePackage[
@@ -421,9 +456,9 @@
 	\fi%
 }
 
-% Command to detect whether we are inside an mdframed environment
-\newif\ifinfloat % First, set this flag whenever we are in an mdframed environment...
-\AtBeginEnvironment{mdframed}{\infloattrue}
+% Command to detect whether we are inside a tcolorbox environment
+\newif\ifinfloat % First, set this flag whenever we are in a tcolorbox environment...
+\AtBeginEnvironment{tcolorbox}{\infloattrue\renewcommand{\marginnotevadjust}{-1.4\vscale}}
 \AtBeginEnvironment{minipage}{\infloattrue}
 
 \def\IfInFloatingEnvir{% ...Then, detect the flag
@@ -1038,20 +1073,7 @@
 %	ENCODING AND FONTS
 %----------------------------------------------------------------------------------------
 
-% https://tex.stackexchange.com/questions/47576/combining-ifxetex-and-ifluatex-with-the-logical-or-operation
-% Introduce a command to find out whether the compiler is XeTeX or LuaTeX
-\newif\ifxetexorluatex
-\ifxetex
-	\xetexorluatextrue
-\else
-	\ifluatex
-		\xetexorluatextrue
-	\else
-		\xetexorluatexfalse
-	\fi
-\fi
-
-\ifxetexorluatex
+\newcommand{\kao@fontmethodModern}{%
 	\RequirePackage{amssymb} % Must be loaded before unicode-math
 	\RequirePackage[force]{filehook} % Fixes an error
 	\RequirePackage{unicode-math} % Math fonts in xetexorluatex
@@ -1068,8 +1090,9 @@
 	\ifluatex
 	\else
 		\RequirePackage{morewrites} % Fix some errors related to floats (not necessary with LuaLaTeX
-	\fi
-\else
+	\fi%
+}
+\newcommand{\kao@fontmethodTex}{%
 	\RequirePackage[utf8]{inputenc} % utf8 encoding in the input (.tex) file
 	\RequirePackage[T1]{fontenc} % utf8 encoding in the output (.pdf) file
 
@@ -1079,12 +1102,27 @@
 	\RequirePackage[scaled=.85]{beramono} % Monospace font
 	\RequirePackage[scr=rsfso,cal=boondoxo]{mathalfa} % Mathcal from STIX, unslanted a bit
 	\RequirePackage{morewrites} % Fix some errors related to floats
-\fi
+}
+
+\ifthenelse%
+	{\equal{modern}{\kao@fontmethod}}{\kao@fontmethodModern}%
+{\ifthenelse%
+	{\equal{tex}{\kao@fontmethod}}{\kao@fontmethodTex}%
+{
+	\PackageError{kao}{%
+		Invalid fontmethod choice \kao@fontmethod.%
+	}{%
+		Should be one of "modern" or "tex"%
+	}
+}}
 
 % When using the Palatino (newpxtext) font, it is better to use a 
 % slightly larger stretch.
 %\setstretch{1.10}
 \linespread{1.07} % Give Palatino more leading (space between lines)
+
+% Fix for the subequation environment (https://tex.stackexchange.com/questions/27053/too-much-space-between-full-paragraph-and-subequations-env)
+\preto\subequations{\ifhmode\unskip\fi}
 
 %----------------------------------------------------------------------------------------
 %	HYPERREFERENCES
@@ -1095,6 +1133,7 @@
 
 \PassOptionsToPackage{hyphens}{url} % Break long URLs and use hyphens to separate the pieces
 
+% Color settings should be done in the next \hypersetup
 \hypersetup{ % Set up hyperref options
 	unicode, % Use unicode for links
 	pdfborder={0 0 0}, % Suppress border around pdf
@@ -1107,11 +1146,6 @@
 	linktoc=all, % Toc entries and numbers links to pages
 	breaklinks=true,
 	colorlinks=true,
-	%allcolors=DarkGreen,
-	citecolor = DarkOrange,
-	linkcolor = Blue,
-	%pagecolor = Blue,
-	urlcolor = OliveGreen,
 }
 
 % Define a new color for the footnote marks
@@ -1170,12 +1204,14 @@
 
 % Choose the default colors
 \hypersetup{
+	%allcolors=DarkGreen,
 	%anchorcolor=Red,
 	%citecolor=DarkOrange!70!black,
 	citecolor=OliveGreen,
 	filecolor=OliveGreen,
 	%linkcolor=Blue,
 	linkcolor=Black,
+	%pagecolor = Blue,
 	%menucolor=Red,
 	%runcolor=Red,
 	urlcolor=OliveGreen,
@@ -1196,42 +1232,34 @@
 %	SIMPLE BOXED ENVIRONMENT
 %----------------------------------------------------------------------------------------
 
-% kaobox (while tcolorbox may be more rich, I find it too complicated so I prefer mdframed)
-\RequirePackage{tikz}
-\RequirePackage[framemethod=TikZ]{mdframed}
-
-% Define a new style for mdframed boxes
-%\mdfsetup{skipabove=\topskip,skipbelow=0pt}
-\mdfdefinestyle{kaoboxstyle}{
-	skipabove=1.5\topskip,
-	skipbelow=.5\topskip,
-	rightmargin=0pt,
-	leftmargin=0pt,
-	%innertopmargin=3pt,
-	%innerbottommargin=3pt,
-	innerrightmargin=7pt,
-	innerleftmargin=7pt,
-	topline=false,
-	bottomline=false,
-	rightline=false,
-	leftline=false,
-	%linewidth=1pt,
-	%roundcorner=0pt,
-	%font={},
-	%frametitlefont={},
-	frametitlerule=true,
-	linecolor=black,
-	%backgroundcolor=LightBlue,
-	fontcolor=black,
-	%frametitlebackgroundcolor=LightBlue,
-}
+% kaobox
+\RequirePackage[most]{tcolorbox}
 
 % Define a new environment using the style created above
-\newmdenv[
-	style=kaoboxstyle,
-	backgroundcolor=RoyalBlue!25!White,
-	frametitlebackgroundcolor=RoyalBlue!25!White,
-]{kaobox}
+\newtcolorbox{kaobox}[1][]{
+	breakable,
+	before skip=1.5\topskip,
+	after skip=1.5\topskip,
+	left skip=0pt,
+	right skip=0pt,
+	left=4pt,
+	right=4pt,
+	top=2pt,
+	bottom=2pt,
+	lefttitle=4pt,
+	righttitle=4pt,
+	toptitle=2pt,
+	bottomtitle=2pt,
+	sharp corners,
+	boxrule=0pt,
+	titlerule=.4pt,
+	colback=RoyalBlue!25!White,
+	colbacktitle=RoyalBlue!25!White,
+	coltitle=black,
+	colframe=black,
+	fonttitle=\bfseries,
+	#1
+}
 
 %----------------------------------------------------------------------------------------
 %	ENVIRONMENT WITH A COUNTER
@@ -1240,7 +1268,7 @@
 % Define an environment titled 'Comment' and numbered incrementally
 \newenvironment{kaocounter}{
 	\refstepcounter{kaocounter}
-	\begin{kaobox}[frametitle=Comment~\thekaocounter\autodot]
+	\begin{kaobox}[title=Comment~\thekaocounter\autodot]
 }{
 	\end{kaobox}
 }
@@ -1357,7 +1385,6 @@
 
 % Special gliphs
 \RequirePackage{ccicons} % Creative Commons icons
-\RequirePackage{metalogo} % XeTeX logo
 
 % Index, glossary and nomenclature
 \RequirePackage{imakeidx}
