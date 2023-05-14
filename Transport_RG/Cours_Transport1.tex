@@ -1,0 +1,212 @@
+%\documentclass[11pt,a4paper,twoside]{report}
+\documentclass[chapterprefix,titlepage,appendixprefix,a4paper,12pt,openright]{scrbook}
+
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{lmodern}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+%%\usepackage[francais]{babel}
+\usepackage{textcomp}
+\usepackage{bbm}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{indentfirst}
+\usepackage[pdfpagelabels]{hyperref}
+
+\usepackage{rotating}
+
+\usepackage{latexsym}
+\usepackage{subfigure}
+
+\usepackage{here}
+
+
+
+
+
+
+
+\hypersetup{%
+  pdftitle    = {Transport in tokamaks},
+  pdfsubject  = {Master Sciences de la Fusion},
+  pdfkeywords = {plasma, confinement, collisions, turbulence, transport, impurities,
+    fusion, tokamak},
+  pdfauthor   = {Rémy Guirlet},
+  bookmarksnumbered = true,
+  colorlinks  = true,
+  linkcolor   = blue,
+  citecolor   = cyan,
+  urlcolor    = green,
+  pdfpagemode = UseNone,
+  pdfstartview=Fit
+}
+\newcommand{\afaire}[1]{\colorbox{yellow}{\textcolor{red}{#1}}}
+
+
+
+%%% figures
+\makeatletter
+\renewcommand{\fnum@figure}{\bfseries\small Figure~\thefigure~\small\itshape}
+\makeatother
+
+%%% tables
+\makeatletter
+\renewcommand{\fnum@table}{\bfseries\small Tableau~\thetable\sffamily\small\itshape}
+\makeatother
+
+
+
+\newcommand{\V}[1]{\boldsymbol{#1}}
+
+\setcounter{tocdepth}{3} %profondeur de l'arborescence dans le sommaire
+\setcounter{secnumdepth}{4} %profondeur de l'arborescence
+
+%==================================================================
+
+\begin{document}
+
+\setcounter{page}{0}
+
+\thispagestyle{empty}
+
+\noindent
+\parbox[t]{65mm}{
+\textsf{{\large Formation aux\\
+\textbf{Sciences de la Fusion}}\\
+\smallskip {\small http://www.sciences-fusion.fr/}}}
+\parbox[t]{105mm}{
+\vspace*{-\baselineskip}
+\begin{flushright}
+{\textsc{ Universit\'e Aix-Marseille}\\
+INSTN}
+\end{flushright}} \hbox{} \hfill
+
+\vspace{2cm}
+
+\Large
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{ll}
+\hline
+\textsf{Master 2}: & Physique et Sciences de la Mati\`ere\\
+\textsf{Spécialit\'e}: & Sciences de la Fusion\\
+\textsf{Parcours}: & Fusion par Confinement Magn\'etique\\
+\hline
+\end{tabular}\\
+\bigskip{\normalsize Ann\'ee 2022/2023}
+\end{center}
+
+\vspace{.5cm} \large
+
+\begin{center}
+Module FCM-4 \smallskip\\
+\textsf{\textbf{Transport in tokamak plasmas}}\smallskip\\
+Chapters 1 to 3
+\end{center}
+
+\vspace{3cm} \normalsize
+
+\begin{flushright}
+\parbox{90mm}{Rémy GUIRLET\smallskip\\
+CEA/Direction des Sciences de la Matière\\
+Institut de Recherche sur la Fusion par confinement Magnétique\\
+Centre de Cadarache\\
+13108 St-Paul-lez-Durance Cedex, France \smallskip\\
+Tel.: +33 (0)4 42 25 38 85\\ Fax: +33 (0)4 42 25 -- --\\
+{\small e-mail: remy.guirlet@cea.fr}}
+\end{flushright} \hbox{} \hfill
+
+\normalsize
+
+\clearpage
+\setcounter{page}{0}
+\thispagestyle{empty}
+\pagebreak
+
+
+\tableofcontents
+
+
+%==================================================================
+
+%=====================================================================================
+%
+
+
+%\include{intro}
+%
+
+\mainmatter
+\setcounter{chapter}{0}
+\setcounter{page}{3}
+ \renewcommand{\chaptermark}[1]{\markboth{Chapitre \thechapter\  : #1}{}}
+ \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+
+% I. Introduction
+\include{Cours_Transport1_chap1}
+
+% II. Transport collisionnel
+%\include{Cours_Transport1_chap2}
+
+% III. Transport turbulent
+%\include{Cours_Transport1_chap3}
+
+% IV. Méthodes expérimentales (à écrire)
+%\include{Cours_Transport1_chap4}
+
+
+
+
+%\bibliography{biblio_cours_transport_M2Fusion}
+%%\bibliographystyle{plain}
+%\bibliographystyle{these2}
+%\pagebreak
+%\strut\thispagestyle{empty}
+%\vfill
+
+
+
+
+
+%\backmatter
+
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+%%\include{conclusion}
+
+%\renewcommand{\footrulewidth}{0pt}
+
+\pagestyle{plain}
+
+
+%-----------------------------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                BIBLIOGRAPHIE                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\listoffigures
+%\listoftables
+
+\newpage
+
+%\addcontentsline{toc}{part}{Références}
+%\def\bibname{Références}
+
+%\bibliographystyle{these2}
+%\bibliography{biblio_these}
+%\cleardoublepage
+%\include{remerciements}
+
+%\include{summary}
+
+\end{document}
